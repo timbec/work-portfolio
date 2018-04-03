@@ -21,9 +21,11 @@
         @foreach($posts as $post)
         <tr>
             <td>{{ $post->id }}</td>
-            <td>{{ $post->photo_id }}</td>
-            <td>{{ $post->category_id }}</td>
             <td>{{ $post->title }}</td>
+            <td>
+            <img height="50" src="{{$post->photo ? $post->photo->file : 'http://via.placeholder.com/350x150' }}" alt="">
+            </td>
+            <td>{{ $post->category_id }}</td>
             <td>{{ $post->body }}</td>
             <td>{{ $post->excerpt }}</td>
             <td>{{ $post->created_at->diffForHumans() }}</td>

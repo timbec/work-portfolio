@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Post; 
+use App\Photo; 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostsCreateRequest;
 use App\Http\Controllers\Controller;
+
+use App\Http\Requests; 
+use Illuminate\Support\Facades\Auth;
 
 class AdminPostsController extends Controller
 {
@@ -36,9 +41,36 @@ class AdminPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostsCreateRequest $request)
     {
-        //
+        $input = $request->all(); 
+
+        //dd($input['category_id']);
+        $user = Auth::user(); 
+
+        $post = Post::first(); 
+
+        //dd($post->category_id);
+
+        if($file = $request->file('photo_id')) {
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name ); 
+
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id; 
+        }
+
+        if($input['category_id'] === null ) {
+           $input['category)id'] = 1; 
+        }
+
+         $input['category)id'] = 1; 
+
+        //dd($input['category_id']);
+
+        $user->posts()->create($input);
+
     }
 
     /**

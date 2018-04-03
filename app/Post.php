@@ -14,4 +14,13 @@ class Post extends Model
         'body',
         'excerpt'
     ];
+
+    public function photo() {
+        return $this->belongsTo('App\Photo');
+    }
+
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
+    
 }
