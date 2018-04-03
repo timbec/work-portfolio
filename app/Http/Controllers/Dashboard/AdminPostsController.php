@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Post; 
 use App\Photo; 
+use App\Category; 
 use Illuminate\Http\Request;
 use App\Http\Requests\PostsCreateRequest;
 use App\Http\Controllers\Controller;
@@ -32,7 +33,9 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::pluck('name', 'id')->all();
+
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -45,12 +48,9 @@ class AdminPostsController extends Controller
     {
         $input = $request->all(); 
 
-        //dd($input['category_id']);
         $user = Auth::user(); 
 
         $post = Post::first(); 
-
-        //dd($post->category_id);
 
         if($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
@@ -60,14 +60,6 @@ class AdminPostsController extends Controller
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id'] = $photo->id; 
         }
-
-        if($input['category_id'] === null ) {
-           $input['category)id'] = 1; 
-        }
-
-         $input['category)id'] = 1; 
-
-        //dd($input['category_id']);
 
         $user->posts()->create($input);
 
