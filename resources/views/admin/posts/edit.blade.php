@@ -3,6 +3,8 @@
 
 @section('content')
 
+ <a target="_blank" href="{{ route('blog.post', $post->slug) }}">Live Site</a>
+
     <h1>Edit Post</h1>
 
     <div class="row">
@@ -49,5 +51,21 @@
     <div class="row">
         @include('includes.form_error')
     </div>
+
+    @section('scripts')
+    <script src="/js/ckeditor.js"></script>
+
+    <script>
+    $(document).ready(function() {
+         ClassicEditor
+            .create( document.querySelector( '#body' ) )
+            .catch( error => {
+                console.log(error);
+            });
+
+            ClassicEditor.build.plugins.map( plugin => plugin.pluginName );
+    });
+    </script>
+    @stop
    
 @stop

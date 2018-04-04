@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/blog', 'PostsController@index' );
+
+Route::get('blog/{id}', ['as'=>'blog.post', 'uses'=>'PostsController@post']);
+
 Auth::routes();
 
 Route::get('/dashboard', 'AdminController@index')->name('dashboard');

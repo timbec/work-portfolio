@@ -10664,6 +10664,12 @@ footer {
   margin: 50px 0;
 }
 
+/*Custom Admin Styles*/
+
+.ck-blurred.ck.ck-editor__editable.ck-content {
+  height: 200px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

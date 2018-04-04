@@ -14,6 +14,7 @@
             <th>Excerpt</th>
             <th>Created</th>
             <th>Updated</th>
+            <th>Live Site</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,9 @@
             <td>{{ $post->created_at->diffForHumans() }}</td>
             <td>{{ $post->updated_at->diffForHumans() }}</td>
             <td>
+             <a target="_blank" href="{{ route('blog.post', $post->slug) }}">{{ $post->title }}</a>
+            </td>
+            <td>
                 <a class="btn btn-dark" href="{{ route('admin.posts.edit', $post->id) }}">EDIT</a>
             </td>
              <td>
@@ -46,5 +50,10 @@
     </tbody>
     </table>
 
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+            {{ $posts->render() }}
+        </div>
+    </div>
 
 @stop

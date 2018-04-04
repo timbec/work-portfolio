@@ -25,7 +25,7 @@
 
         <div class="form-group">
             {!! Form::label('body', 'Content:') !!}
-            {!! Form::textarea('body', null, ['class'=>'form-control']) !!}
+            {!! Form::textarea('body', null, ['class'=>'form-control', 'id' => 'summernote']) !!}
         </div>
 
         <div class="form-group">
@@ -43,5 +43,54 @@
     <div class="row">
         @include('includes.form_error')
     </div>
+
+    @section('scripts')
+    <!-- <script src="/js/ckeditor.js"></script> -->
+
+    <script src="/js/summernote.js"></script>
+
+    <script>
+        //$('#summernote').summernote();
+
+        $('#summernote').summernote({
+            height: 300,
+            onImageUpload: function(files, editor, welEditable) {
+                sendFile(files[0], editor, welEditable);
+            }
+        });
+        function sendFile(file, editor, welEditable) {
+            data = new FormData();
+            console.log(data);
+            data.append("file", file);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "/uploader.php",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    editor.insertImage(welEditable, url);
+                }
+            });
+        }
+
+    $(document).ready(function() {
+
+        
+    
+    });
+
+    // ClassicEditor
+    //         .create( document.querySelector( '#body' ), {
+    //             ckfinder: {
+    //             uploadUrl: '/public/images'
+    //         }
+    //         })
+    //         .catch( error => {
+    //             console.log(error);
+    //         });
+    </script>
+    @stop
    
 @stop
