@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Post; 
+use App\Category; 
+
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -23,6 +26,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('layouts.admin');
+
+        $postsCount = Post::count(); 
+        $categoriesCount = Category::count();
+        //$tagsCount = Tag::count(); 
+
+        return view('admin.index', compact('postsCount', 'categoriesCount'));
     }
 }

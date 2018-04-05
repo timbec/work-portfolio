@@ -52,28 +52,71 @@
     <script>
         //$('#summernote').summernote();
 
+        // $('#summernote').summernote({
+        //     height: 300,
+        //     onImageUpload: function(files, editor, welEditable) {
+        //         sendFile(files[0], editor, welEditable);
+        //     }
+        // });
+        // function sendFile(file, editor, welEditable) {
+        //     data = new FormData();
+        //     console.log(data);
+        //     data.append("file", file);
+        //     $.ajax({
+        //         data: data,
+        //         type: "POST",
+        //         url: "/uploader.php",
+        //         cache: false,
+        //         contentType: false,
+        //         processData: false,
+        //         success: function(url) {
+        //             editor.insertImage(welEditable, url);
+        //         }
+        //     });
+        // }
+
         $('#summernote').summernote({
-            height: 300,
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0], editor, welEditable);
+        onImageUpload: function(files, editor, welEditable) {
+            sendFile(files[0], editor, welEditable);
+        }
+});
+
+// send the file
+//Latest attempt to add images: https://stackoverflow.com/questions/21628222/summernote-image-upload/25122576
+
+function sendFile(file, editor, welEditable) {
+        data = new FormData();
+        console.log(data);
+        data.append("file", file);
+        $.ajax({
+            data: data,
+            type: 'POST',
+            xhr: function() {
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) myXhr.upload.addEventListener('progress',progressHandlingFunction, false);
+                return myXhr;
+            },
+            url: root + '/uploader.php',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(url) {
+                editor.insertImage(welEditable, url);
             }
         });
-        function sendFile(file, editor, welEditable) {
-            data = new FormData();
-            console.log(data);
-            data.append("file", file);
-            $.ajax({
-                data: data,
-                type: "POST",
-                url: "/uploader.php",
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(url) {
-                    editor.insertImage(welEditable, url);
-                }
-            });
+}
+
+// update progress bar
+
+function progressHandlingFunction(e){
+    if(e.lengthComputable){
+        $('progress').attr({value:e.loaded, max:e.total});
+        // reset progress on complete
+        if (e.loaded == e.total) {
+            $('progress').attr('value','0.0');
         }
+    }
+}
 
     $(document).ready(function() {
 
