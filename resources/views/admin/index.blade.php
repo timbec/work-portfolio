@@ -24,7 +24,7 @@ var myChart = new Chart(ctx, {
         labels: ["Posts", "Projects", "Categories", "Tags"],
         datasets: [{
             label: 'CMS Data',
-            data: [{{ $postsCount }},3, {{ $categoriesCount }}, 2, 3],
+            data: [{{ $postsCount }},3, {{ $categoriesCount }}, {{ $tagsCount }} ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
