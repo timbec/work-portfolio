@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Category; 
+use App\Tag; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AdminCategoriesController extends Controller
+class AdminTagsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,9 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
+        $tags = Tag::all(); 
 
-        $categories = Category::all();
-
-
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -29,7 +27,9 @@ class AdminCategoriesController extends Controller
      */
     public function create()
     {
-        // return view('admin.categories.create');
+         Tag::create($request->all());
+
+        return redirect('/dashboard/tags');
     }
 
     /**
@@ -40,9 +40,9 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+         Tag::create($request->all());
 
-        return redirect('dashboard/categories');
+        return redirect('dashboard/tags');
     }
 
     /**
@@ -64,9 +64,9 @@ class AdminCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
+         $tag = Tag::findOrFail($id);
 
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -78,11 +78,11 @@ class AdminCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
+        $tag = Tag::findOrFail($id);
 
-        $category->update($request->all());
+        $tag->update($request->all());
 
-        return redirect('/dashboard/categories');
+        return redirect('/dashboard/tags');
     }
 
     /**
@@ -93,10 +93,10 @@ class AdminCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $category= Category::findOrFail($id);
+        $tag= Tag::findOrFail($id);
 
-        $category->delete();
+        $tag->delete();
 
-        return redirect('/dashboard/categories');
+        return redirect('/dashboard/tags');
     }
 }

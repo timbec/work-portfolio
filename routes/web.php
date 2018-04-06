@@ -52,3 +52,10 @@ Route::resource('/dashboard/categories', 'Dashboard\AdminCategoriesController', 
 //Route::get('/dashboard/media/upload', ['as'=>'admin.media.upload']);
 
 Route::delete('admin/delete/media', 'Dashboard\AdminMediaController@deleteMedia');
+
+Route::resource('/dashboard/tags', 'Dashboard\AdminTagsController', ['names' => [
+    'index' => 'admin.tags.index', 
+    'create' => 'admin.tags.create',
+    'store' => 'admin.tags.store', 
+    'edit' => 'admin.tags.edit'
+]] );
