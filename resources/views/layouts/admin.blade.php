@@ -150,6 +150,32 @@
                         <!-- /.nav-second-level -->
                     </li>
 
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Works<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/dashboard/works">All Works</a>
+                            </li>
+
+                            <li>
+                                <a href="/dashboard/works/create">Create Work</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Work Categories<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/dashboard/work-categories">All Work Categories</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
 
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>

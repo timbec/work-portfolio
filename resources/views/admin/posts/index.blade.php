@@ -10,6 +10,7 @@
             <th>Title</th>
             <th>Photo</th>
             <th>Category</th>
+            <th>Tag</th>
             <th>Excerpt</th>
             <th>Created</th>
             <th>Updated</th>
@@ -29,6 +30,11 @@
             <img height="100" src="/images/{{$post->photo ? $post->photo->file : 'http://via.placeholder.com/350x150' }}" alt="">
             </td>
             <td>{{ $post->category ? $post->category->name : 'Uncategorized' }}</td>
+            <td>
+            @foreach ($post->tags as $tag)
+                <li>{{ $tag->name }}</li>
+            @endforeach
+            </td>
             <td>{{ $post->excerpt }}</td>
             <td>{{ $post->created_at->diffForHumans() }}</td>
             <td>{{ $post->updated_at->diffForHumans() }}</td>

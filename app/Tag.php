@@ -13,4 +13,16 @@ class Tag extends Model
     {
         return $this->belongsToMany('App\Post'); 
     }
+
+    public function works(){
+
+        return $this->belongsToMany('App\Work'); 
+
+    }
+
+    public function getRouteKeyName(){
+
+        return 'name'; 
+
+    }
 }
