@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Work; 
 class PagesController extends Controller
 {
     public function menu()
@@ -13,7 +14,9 @@ class PagesController extends Controller
 
     public function home() {
 
-        return view('pages.home');
+        $works = Work::all(); 
+
+        return view('pages.home', compact('works'));
     }
 
      public function about() {

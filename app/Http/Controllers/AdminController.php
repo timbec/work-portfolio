@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post; 
+use App\Work;
 use App\Category; 
 use App\Tag; 
 
@@ -29,9 +30,10 @@ class AdminController extends Controller
     {
 
         $postsCount = Post::count(); 
+        $worksCount = Work::count(); 
         $categoriesCount = Category::count();
         $tagsCount = Tag::count(); 
 
-        return view('admin.index', compact('postsCount', 'categoriesCount', 'tagsCount'));
+        return view('admin.index', compact('postsCount', 'worksCount', 'categoriesCount', 'tagsCount'));
     }
 }

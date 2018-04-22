@@ -41,6 +41,13 @@ Route::resource('/dashboard/categories', 'Dashboard\AdminCategoriesController', 
     'edit' => 'admin.categories.edit'
 ]]);
 
+Route::resource('/dashboard/work-categories', 'Dashboard\AdminWorkCategoriesController', ['names' => [
+    'index' => 'admin.work-categories.index', 
+    'create' => 'admin.work-categories.create',
+    'store' => 'admin.work-categories.store', 
+    'edit' => 'admin.work-categories.edit'
+]]);
+
  Route::resource('/dashboard/media', 'Dashboard\AdminMediaController',['names'=>[
 
         'index'=>'admin.media.index',
@@ -48,8 +55,16 @@ Route::resource('/dashboard/categories', 'Dashboard\AdminCategoriesController', 
         'store'=>'admin.media.store',
         'edit'=>'admin.media.edit'
     ]]);
-
 //Route::get('/dashboard/media/upload', ['as'=>'admin.media.upload']);
+
+//Works
+Route::resource('dashboard/works', 'Dashboard\WorksController', 
+['names' => [
+     'index' => 'admin.works.index', 
+     'create'=>'admin.works.create',
+     'store'=>'admin.works.store',
+     'edit'=>'admin.works.edit'
+]]);
 
 Route::delete('admin/delete/media', 'Dashboard\AdminMediaController@deleteMedia');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Post; 
 use App\Photo; 
 use App\Category; 
+use App\Tag; 
 use Illuminate\Http\Request;
 use App\Http\Requests\PostsCreateRequest;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,7 @@ class AdminPostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Tag $tag=null)
     {
         $posts = Post::paginate(5); 
 
@@ -34,8 +35,9 @@ class AdminPostsController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id')->all();
+        $tags = Tag::pluck('name', 'id');
 
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -61,7 +63,8 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id; 
         }
 
-        $user->posts()->create($input);
+        $posts = $user->posts()->create($input);
+        $posts->tags()->attach($request->input('tags')); 
 
         return redirect('/dashboard/posts'); 
     }
