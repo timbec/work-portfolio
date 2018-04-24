@@ -20,6 +20,7 @@
                 <div class="title m-b-md">
                      This is the Home Page
                 </div>
+                <app-notifications></app-notifications>
 
                 <div id="works">
                 <h2>Works</h2>

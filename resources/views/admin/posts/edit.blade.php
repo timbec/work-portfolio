@@ -52,20 +52,12 @@
         @include('includes.form_error')
     </div>
 
-    @section('scripts')
-    <script src="/js/ckeditor.js"></script>
+@section('scripts')
+
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-         ClassicEditor
-            .create( document.querySelector( '#body' ) )
-            .catch( error => {
-                console.log(error);
-            });
-
-            ClassicEditor.build.plugins.map( plugin => plugin.pluginName );
-    });
+     var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
     </script>
-    @stop
    
 @stop

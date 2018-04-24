@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+@section('styles')
+
+
+@stop
+
 @section('content')
       <h1>Create Work</h1>
 
@@ -11,12 +16,12 @@
 
          <div class="form-group">
             {!! Form::label('body', 'Content:') !!}
-            {!! Form::textarea('body', null, ['class'=>'form-control'])!!}
+            {!! Form::textarea('body', null, ['id' => 'dropzone', 'id'=> 'body', 'class'=>'form-control'])!!}
          </div>
 
          <div class="form-group">
             {!! Form::label('description', 'Description:') !!}
-            {!! Form::textarea('description', null, ['class'=>'form-control'])!!}
+            {!! Form::textarea('description', null, ['id' => 'description', 'class'=>'form-control'])!!}
          </div>
 
          <div class="form-group">
@@ -40,9 +45,6 @@
             {!! Form::select('tags[]', $tags, null, ['class'=>'form-control', 'multiple'])!!}
          </div>
 
-
-
-
          <div class="form-group">
             {!! Form::submit('Create Work', ['class'=>'btn btn-primary']) !!}
          </div>
@@ -59,3 +61,14 @@
       </div>
       @endif
 @stop
+
+   @section('scripts')
+
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+    <script>
+    var simplemde1 = new SimpleMDE({ element: $("#body")[0] });
+    var simplemde2 = new SimpleMDE({ element: $("#description")[0] });
+    </script>
+   
+    @stop

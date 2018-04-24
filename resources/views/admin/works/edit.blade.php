@@ -32,12 +32,12 @@
 
         <div class="form-group">
             {!! Form::label('body', 'Content:') !!}
-            {!! Form::textarea('body', null, ['class'=>'form-control']) !!}
+            {!! Form::textarea('body', null, ['id' => 'body', 'class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('description', 'Description:') !!}
-            {!! Form::textarea('description', null, ['class'=>'form-control', 'rows'=> 2 ]) !!}
+            {!! Form::textarea('description', null, ['id' => 'description', 'class'=>'form-control', 'rows'=> 2 ]) !!}
         </div>
 
         <div class="form-group">
@@ -52,20 +52,15 @@
         @include('includes.form_error')
     </div>
 
-    @section('scripts')
-    <script src="/js/ckeditor.js"></script>
+   @section('scripts')
+
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-         ClassicEditor
-            .create( document.querySelector( '#body' ) )
-            .catch( error => {
-                console.log(error);
-            });
-
-            ClassicEditor.build.plugins.map( plugin => plugin.pluginName );
-    });
+    var simplemde1 = new SimpleMDE({ element: $("#body")[0] });
+    var simplemde2 = new SimpleMDE({ element: $("#description")[0] });
     </script>
+   
     @stop
    
 @stop

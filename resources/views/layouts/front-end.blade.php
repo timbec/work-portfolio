@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+            <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -65,24 +68,12 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-
-
-        <nav class="menu:c">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/blog">Blog</a></li>
-            </ul>
-        </nav>
-           
-
-            <div class="content">
+        <div id="content" v-cloak>
                 
                 @yield('content')
-                
-            </div>
+
         </div>
+            <!-- Scripts -->
+    <script src="{{ asset('js/main.js') }}" defer></script>
     </body>
 </html>

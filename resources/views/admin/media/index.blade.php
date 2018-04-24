@@ -9,6 +9,7 @@
             <th>ID</th>
             <th>Photo</th>
             <th>Created</th>
+            <th>URL</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,9 @@
             <img height="100" src="/images/{{ $photo->file }}" /></td>
             <td>
             {{ $photo->created_at->diffForHumans() }} 
+            </td>
+            <td>
+                <a href="/images/{{ $photo->file }}">/images/{{ $photo->file }}</a>
             </td>
              <td>
                 {!! Form::open(['method'=>'DELETE', 'action'=>['Dashboard\AdminMediaController@destroy', $photo->id]]) !!}

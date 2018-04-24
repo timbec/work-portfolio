@@ -1,26 +1,31 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
-// Variables
+
+// Variable
 @import "variables";
-
-// Bootstrap
-//@import '~bootstrap/scss/bootstrap';
-@import 'bootstrap';
 @import 'font-awesome';
-@import 'metisMenu';
-@import 'sb-admin-2';
 @import 'blog-post';
-@import 'admin';
-
 
 
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-// #admin-page {
-//   padding-top: 0; 
-// }
+/*Custom Front End Styles*/
+
+
+body {
+    background: red;
+}
+
+body {
+    font-size: 16px;
+    font-family: "Varela Round", Arial, "Helvetica Neue", Helvetica, serif;
+}
+
+p {
+    font-family: 'Helvetica Neue', serif;
+}
