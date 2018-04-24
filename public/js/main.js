@@ -48976,7 +48976,7 @@ exports = module.exports = __webpack_require__(42)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49007,42 +49007,70 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
-
-// window.axios = require('axios');
 //
-// window.axios.defaults.headers.common = {
-//     'X-Requested-With': 'XMLHttpRequest'
-// };
-
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            posts: [],
-            post: {
-                title: '',
-                body: '',
-                slug: '',
-                photo_id: ''
-            }
-        };
-    },
+   data: function data() {
+      return {
+         posts: [],
+         post: {
+            title: '',
+            body: '',
+            slug: '',
+            excerpt: '',
+            category: {
+               name: ''
+            },
+            tags: [],
+            tag: {
+               name: ''
+            },
+            featured_image: '',
+            thumbnail: ''
+         }
+      };
+   },
+   computed: {
+      thumbnail: function (_thumbnail) {
+         function thumbnail() {
+            return _thumbnail.apply(this, arguments);
+         }
 
-    components: {
-        VueMarkdown: __WEBPACK_IMPORTED_MODULE_1_vue_markdown___default.a
-    },
-    created: function created() {
-        var _this = this;
+         thumbnail.toString = function () {
+            return _thumbnail.toString();
+         };
 
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/posts').then(function (response) {
-            return _this.posts = response.data;
-        });
+         return thumbnail;
+      }(function () {
+         thumbnail = '/images/' + this.featured_image;
+         return thumbnail;
+      })
+   },
+   created: function created() {
+      var _this = this;
 
-        //then(response => console.log(response.data));
-    }
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/posts').then(function (response) {
+         return _this.posts = response.data.data;
+      });
+
+      //then(response => console.log(response.data.data));
+   }
 });
 
 /***/ }),
@@ -49065,14 +49093,33 @@ var render = function() {
             [
               _c("router-link", { attrs: { to: /blog/ + post.slug } }, [
                 _vm._v("\n       " + _vm._s(post.title) + "\n       ")
-              ]),
-              _vm._v(" "),
-              _c("img", { attrs: { src: post.photo_id, alt: "" } })
+              ])
             ],
             1
           ),
+          _vm._v("\n   " + _vm._s(post.thumbnail) + "\n    "),
+          _c("p", { domProps: { innerHTML: _vm._s(post.excerpt) } }),
           _vm._v(" "),
-          _c("p", { domProps: { innerHTML: _vm._s(post.excerpt) } })
+          post.category
+            ? _c("p", [
+                _vm._v(
+                  "\n       Category: " + _vm._s(post.category.name) + "\n    "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          post.tags
+            ? _c(
+                "ul",
+                _vm._l(post.tags, function(tag) {
+                  return _c("li", [
+                    _vm._v("\n          " + _vm._s(tag.name) + "\n       ")
+                  ])
+                })
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("img", { attrs: { src: "/images/" + post.featured_image } })
         ])
       })
     ],

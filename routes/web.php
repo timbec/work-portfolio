@@ -5,6 +5,7 @@ use App\Work;
 use App\Tag;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\Post as PostResource;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +20,20 @@ use Illuminate\Http\Request;
 /**
  * REST API
  */
-Route::get('/posts', function(Request $request) {
-    //$input = $request->all();
-    $tags = Tag::all();
+Route::get('/test', function() {
+
     $posts = Post::all();
-    $posts->tags()->attach($tags);
-    return $posts;
+
+    return PostResource::collection($posts);
+
+});
+
+Route::get('/posts', function() {
+
+   $posts = Post::all();
+
+   return PostResource::collection($posts);
+
 });
 
 Route::get('/posts/{id}', function($slug) {

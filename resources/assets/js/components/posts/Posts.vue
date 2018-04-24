@@ -6,9 +6,23 @@
           <router-link :to="/blog/ + post.slug">
           {{ post.title }}
           </router-link>
-          <img :src="post.photo_id" alt="">
+
        </h3>
+      {{post.thumbnail}}
        <p v-html="post.excerpt"></p>
+       <p v-if="post.category">
+          Category: {{ post.category.name }}
+       </p>
+      <ul v-if="post.tags">
+         
+         <li v-for="tag in post.tags">
+             {{ tag.name }}
+          </li>
+
+      </ul>
+
+       <img :src="'/images/' + post.featured_image" />
+
     </li>
    </section>
 
@@ -17,34 +31,39 @@
 <script>
 import Axios from 'axios';
 import VueMarkdown from 'vue-markdown';
-// window.axios = require('axios');
-//
-// window.axios.defaults.headers.common = {
-//     'X-Requested-With': 'XMLHttpRequest'
-// };
-
-//
 
 export default {
-   data() {
+   data: function() {
          return {
                posts: [],
                post: {
                   title: '',
                   body: '',
                   slug: '',
-                  photo_id: ''
+                  excerpt: '',
+                  category: {
+                     name: ''
+                  },
+                  tags: [],
+                  tag: {
+                     name: ''
+                  },
+                  featured_image: '',
+                  thumbnail: ''
                }
          }
       },
-    components: {
-        VueMarkdown
-    },
-    created() {
-        Axios.get('/posts').then(response => this.posts = response.data);
+      computed: {
+         thumbnail: function() {
+            thumbnail = '/images/' + this.featured_image;
+            return thumbnail;
+         }
+      },
+       created() {
+           Axios.get('/posts').then(response => this.posts = response.data.data);
 
-        //then(response => console.log(response.data));
-    }
+           //then(response => console.log(response.data.data));
+       }
 }
 
 </script>
