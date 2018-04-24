@@ -1,7 +1,17 @@
 @extends('layouts.admin')
 
+@section('styles')
+
+   <link rel="stylesheet" href="/css/summernote.css">
+@stop
+
 
 @section('content')
+
+<!-- https://github.com/njvack/markdown-to-json
+https://laracasts.com/discuss/channels/laravel/best-way-to-render-markdown-in-views
+https://simplemde.com/
+-->
 
     <h1>Create Post</h1>
 
@@ -54,7 +64,42 @@
 
     <script src="/js/summernote.js"></script>
 
+    <!-- <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script> -->
+
     <script>
+     // var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
+
+     //https://stackoverflow.com/questions/21628222/summernote-image-upload
+    $('#summernote').summernote({
+    height: ($(window).height() - 300),
+    callbacks: {
+        onImageUpload: function(image) {
+            uploadImage(image[0]);
+        }
+    }
+});
+
+function uploadImage(image) {
+    var data = new FormData();
+    console.log(data);
+    data.append("image", image);
+    $.ajax({
+        url: '/images',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: data,
+        type: "post",
+        success: function(url) {
+            var image = $('<img>').attr('src', 'http://' + url);
+            $('#summernote').summernote("insertNode", image[0]);
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+}
+
         //$('#summernote').summernote();
 
         // $('#summernote').summernote({
@@ -80,54 +125,54 @@
         //     });
         // }
 
-        $('#summernote').summernote({
-        onImageUpload: function(files, editor, welEditable) {
-            sendFile(files[0], editor, welEditable);
-        }
-});
+        // $('#summernote').summernote({
+        // onImageUpload: function(files, editor, welEditable) {
+        //     sendFile(files[0], editor, welEditable);
+        // }
+//});
 
 // send the file
 //Latest attempt to add images: https://stackoverflow.com/questions/21628222/summernote-image-upload/25122576
 
-function sendFile(file, editor, welEditable) {
-        data = new FormData();
-        console.log(data);
-        data.append("file", file);
-        $.ajax({
-            data: data,
-            type: 'POST',
-            xhr: function() {
-                var myXhr = $.ajaxSettings.xhr();
-                if (myXhr.upload) myXhr.upload.addEventListener('progress',progressHandlingFunction, false);
-                return myXhr;
-            },
-            url: root + '/uploader.php',
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(url) {
-                editor.insertImage(welEditable, url);
-            }
-        });
-}
+// function sendFile(file, editor, welEditable) {
+//         data = new FormData();
+//         console.log(data);
+//         data.append("file", file);
+//         $.ajax({
+//             data: data,
+//             type: 'POST',
+//             xhr: function() {
+//                 var myXhr = $.ajaxSettings.xhr();
+//                 if (myXhr.upload) myXhr.upload.addEventListener('progress',progressHandlingFunction, false);
+//                 return myXhr;
+//             },
+//             url: root + '/uploader.php',
+//             cache: false,
+//             contentType: false,
+//             processData: false,
+//             success: function(url) {
+//                 editor.insertImage(welEditable, url);
+//             }
+//         });
+// }
 
-// update progress bar
+// // update progress bar
 
-function progressHandlingFunction(e){
-    if(e.lengthComputable){
-        $('progress').attr({value:e.loaded, max:e.total});
-        // reset progress on complete
-        if (e.loaded == e.total) {
-            $('progress').attr('value','0.0');
-        }
-    }
-}
+// function progressHandlingFunction(e){
+//     if(e.lengthComputable){
+//         $('progress').attr({value:e.loaded, max:e.total});
+//         // reset progress on complete
+//         if (e.loaded == e.total) {
+//             $('progress').attr('value','0.0');
+//         }
+//     }
+// }
 
-    $(document).ready(function() {
+//     $(document).ready(function() {
 
-        
-    
-    });
+
+
+//     });
 
     // ClassicEditor
     //         .create( document.querySelector( '#body' ), {
@@ -140,5 +185,5 @@ function progressHandlingFunction(e){
     //         });
     </script>
     @stop
-   
+
 @stop

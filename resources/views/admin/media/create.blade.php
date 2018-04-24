@@ -12,6 +12,10 @@
 
     {!! Form::open(['method'=>'POST', 'action'=> 'Dashboard\AdminMediaController@store', 'class'=>'dropzone']) !!}
 
+     <div class="form-group">
+            {!! Form::submit('Upload Media', ['class'=>'btn btn-primary']) !!}
+        </div>
+
     {!! Form::close() !!}
 
 @stop
@@ -20,4 +24,6 @@
 @section('scripts')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.js"></script>
+
+
 @stop

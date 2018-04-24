@@ -1,5 +1,11 @@
 <?php
 
+use App\Post;
+use App\Work;
+use App\Tag;
+
+use Illuminate\Http\Request;
+use App\Http\Resources\Post as PostResource;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +16,36 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/**
+ * REST API
+ */
+Route::get('/test', function() {
+
+    $posts = Post::all();
+
+    return PostResource::collection($posts);
+
+});
+
+Route::get('/posts', function() {
+
+   $posts = Post::all();
+
+   return PostResource::collection($posts);
+
+});
+
+Route::get('/posts/{id}', function($slug) {
+   $post = Post::findBySlugOrFail($slug);
+   return $post;
+});
+
+Route::get('/works', function() {
+    $works = Work::all();
+    return $works;
+});
+
 
 /**
  * Pages Controller
@@ -28,23 +64,23 @@ Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 
 Route::resource('/dashboard/users', 'Dashboard\AdminUsersController' );
 Route::resource('/dashboard/posts', 'Dashboard\AdminPostsController', ['names' => [
-    'index' => 'admin.posts.index', 
+    'index' => 'admin.posts.index',
     'create' => 'admin.posts.create',
-    'store' => 'admin.posts.store', 
+    'store' => 'admin.posts.store',
     'edit' => 'admin.posts.edit'
 ]]);
 
 Route::resource('/dashboard/categories', 'Dashboard\AdminCategoriesController', ['names' => [
-    'index' => 'admin.categories.index', 
+    'index' => 'admin.categories.index',
     'create' => 'admin.categories.create',
-    'store' => 'admin.categories.store', 
+    'store' => 'admin.categories.store',
     'edit' => 'admin.categories.edit'
 ]]);
 
 Route::resource('/dashboard/work-categories', 'Dashboard\AdminWorkCategoriesController', ['names' => [
-    'index' => 'admin.work-categories.index', 
+    'index' => 'admin.work-categories.index',
     'create' => 'admin.work-categories.create',
-    'store' => 'admin.work-categories.store', 
+    'store' => 'admin.work-categories.store',
     'edit' => 'admin.work-categories.edit'
 ]]);
 
@@ -58,9 +94,9 @@ Route::resource('/dashboard/work-categories', 'Dashboard\AdminWorkCategoriesCont
 //Route::get('/dashboard/media/upload', ['as'=>'admin.media.upload']);
 
 //Works
-Route::resource('dashboard/works', 'Dashboard\WorksController', 
+Route::resource('dashboard/works', 'Dashboard\WorksController',
 ['names' => [
-     'index' => 'admin.works.index', 
+     'index' => 'admin.works.index',
      'create'=>'admin.works.create',
      'store'=>'admin.works.store',
      'edit'=>'admin.works.edit'
@@ -69,8 +105,8 @@ Route::resource('dashboard/works', 'Dashboard\WorksController',
 Route::delete('admin/delete/media', 'Dashboard\AdminMediaController@deleteMedia');
 
 Route::resource('/dashboard/tags', 'Dashboard\AdminTagsController', ['names' => [
-    'index' => 'admin.tags.index', 
+    'index' => 'admin.tags.index',
     'create' => 'admin.tags.create',
-    'store' => 'admin.tags.store', 
+    'store' => 'admin.tags.store',
     'edit' => 'admin.tags.edit'
 ]] );
