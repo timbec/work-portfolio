@@ -24,6 +24,8 @@
         "@ckeditor/ckeditor5-build-classic": "^1.0.0-beta.1",
         "markdown-it": "^8.4.1",
         "simplemde": "^1.11.2",
+        "vue-concise-slider": "^2.4.8",
+        "vue-flickity": "^1.1.1",
         "vue-markdown": "^2.2.4",
         "vue-router": "^3.0.1"
     }

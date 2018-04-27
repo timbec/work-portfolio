@@ -17,12 +17,12 @@
         </tr>
     </thead>
     <tbody>
-     @if($works) 
+     @if($works)
         @foreach($works as $work)
         <tr>
             <td>{{ $work->id }}</td>
             <td>
-           
+
             {{ $work->title }}
 
             </td>

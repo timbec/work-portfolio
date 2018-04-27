@@ -2,7 +2,7 @@
 
 @section('styles')
 
-
+   <link rel="stylesheet" href="/css/summernote.css">
 @stop
 
 @section('content')
@@ -16,12 +16,12 @@
 
          <div class="form-group">
             {!! Form::label('body', 'Content:') !!}
-            {!! Form::textarea('body', null, ['id' => 'dropzone', 'id'=> 'body', 'class'=>'form-control'])!!}
+            {!! Form::textarea('body', null, ['id' => 'summernote', 'class'=>'form-control'])!!}
          </div>
 
          <div class="form-group">
             {!! Form::label('description', 'Description:') !!}
-            {!! Form::textarea('description', null, ['id' => 'description', 'class'=>'form-control'])!!}
+            {!! Form::textarea('description', null, ['id' => 'summernote2', 'class'=>'form-control'])!!}
          </div>
 
          <div class="form-group">
@@ -64,11 +64,44 @@
 
    @section('scripts')
 
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+   <script src="/js/summernote.js"></script>
 
-    <script>
-    var simplemde1 = new SimpleMDE({ element: $("#body")[0] });
-    var simplemde2 = new SimpleMDE({ element: $("#description")[0] });
-    </script>
-   
+   <script type="text/javascript">
+
+   $('#summernote').summernote({
+      height: ($(window).height() - 300),
+      callbacks: {
+         onImageUpload: function(image) {
+              uploadImage(image[0]);
+         }
+      }
+   });
+
+   $('#summernote2').summernote({
+      height: ($(window).height() - 100)
+   });
+
+   function uploadImage(image) {
+      var data = new FormData();
+      console.log(data);
+      data.append("image", image);
+      $.ajax({
+         url: '/images',
+         cache: false,
+         contentType: false,
+         processData: false,
+         data: data,
+         type: "post",
+         success: function(url) {
+              var image = $('<img>').attr('src', 'http://' + url);
+              $('#summernote').summernote("insertNode", image[0]);
+         },
+         error: function(data) {
+              console.log(data);
+         }
+      });
+   }
+
+   </script>
+
     @stop

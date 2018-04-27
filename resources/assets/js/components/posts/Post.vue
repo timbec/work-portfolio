@@ -2,17 +2,12 @@
    <article class="">
       <h1>{{ post.title }}</h1>
       <p v-html="post.body"></p>
-      <p v-html="post.excerpt"></p>
-      <vue-markdown>{{post.body}}</vue-markdown>
    </article>
 </template>
 
 <script>
 import Axios from 'axios';
-import VueMarkdown from 'vue-markdown';
 
-var MarkdownIt = require('markdown-it'),
-    md = new MarkdownIt();
 
 export default {
    data: function() {
@@ -23,9 +18,6 @@ export default {
             body: ''
          }
       }
-   },
-   components: {
-      VueMarkdown
    },
    created: function() {
       var self = this;

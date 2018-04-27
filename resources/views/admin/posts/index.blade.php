@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-     @if($posts) 
+     @if($posts)
         @foreach($posts as $post)
         <tr>
             <td>{{ $post->id }}</td>

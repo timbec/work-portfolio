@@ -3,8 +3,11 @@
 
   <h1>
     <a href="/">
-   Tim Beckett | Web Portfolio
+   Tim Beckett
     </a>
+    <span class="tagline">
+      Web Portfolio
+    </span>
   </h1>
 
    <nav class="menu">

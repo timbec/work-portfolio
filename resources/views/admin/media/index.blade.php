@@ -13,14 +13,14 @@
         </tr>
     </thead>
     <tbody>
-     @if($photos) 
+     @if($photos)
         @foreach($photos as $photo)
         <tr>
             <td>{{ $photo->id }}</td>
             <td>
             <img height="100" src="/images/{{ $photo->file }}" /></td>
             <td>
-            {{ $photo->created_at->diffForHumans() }} 
+            {{ $photo->created_at->diffForHumans() }}
             </td>
             <td>
                 <a href="/images/{{ $photo->file }}">/images/{{ $photo->file }}</a>
@@ -39,5 +39,9 @@
     </tbody>
     </table>
 
-
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+            {{ $photos->render() }}
+        </div>
+    </div>
 @stop
