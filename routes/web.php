@@ -3,6 +3,7 @@
 use App\Post;
 use App\Work;
 use App\Tag;
+use App\WorkCategory;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\Post as PostResource;
@@ -43,6 +44,14 @@ Route::get('/works', function() {
    $works = Work::all();
 
    return WorkResource::collection($works);
+
+});
+
+Route::get('/work-categories', function() {
+
+   $work_categories = WorkCategory::all();
+
+   return $work_categories;
 
 });
 

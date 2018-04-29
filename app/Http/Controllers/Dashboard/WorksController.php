@@ -129,7 +129,6 @@ class WorksController extends Controller
     public function destroy($id)
     {
         $work = Work::findOrFail($id);
-        //dd($work->photo->file);
 
         if(public_path() . '/images/' . $work->photo->file > 0) {
            unlink(public_path() . '/images/' . $work->photo->file);

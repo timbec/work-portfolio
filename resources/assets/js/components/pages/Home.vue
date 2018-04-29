@@ -10,6 +10,7 @@
 <script>
 import Intro from './sub-components/Intro.vue';
 import Slider from './sub-components/Slider.vue';
+import PortfolioFilter from './sub-components/PortfolioFilter.vue';
 import Portfolio from './sub-components/Portfolio.vue';
 export default {
    data: function() {
@@ -20,7 +21,8 @@ export default {
    components: {
       'app-intro': Intro,
       'app-slider': Slider,
-      'app-portfolio': Portfolio
+      'app-portfolio': Portfolio,
+      'app-portfolio-filter': PortfolioFilter
    }
 }
 </script>
