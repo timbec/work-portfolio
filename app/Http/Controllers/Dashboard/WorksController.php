@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 use App\Work;
-use App\Photo; 
-use App\WorkCategory; 
-use App\Tag; 
+use App\Photo;
+use App\WorkCategory;
+use App\Tag;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -22,9 +22,9 @@ class WorksController extends Controller
      */
     public function index(Tag $tag=null)
     {
-        $works = Work::all(); 
+        $works = Work::all();
 
-        return view('admin.works.index', compact('works')); 
+        return view('admin.works.index', compact('works'));
     }
 
     /**
@@ -35,7 +35,7 @@ class WorksController extends Controller
     public function create()
     {
          $work_categories = WorkCategory::pluck('name', 'id')->all();
-        $tags = Tag::pluck('name', 'id'); 
+        $tags = Tag::pluck('name', 'id');
 
         return view('admin.works.create', compact('work_categories', 'tags'));
     }
@@ -48,26 +48,26 @@ class WorksController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all(); 
+        $input = $request->all();
 
-        $user = Auth::user(); 
+        $user = Auth::user();
 
-        $work = Work::first(); 
+        $work = Work::first();
 
         if($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name ); 
+            $file->move('images', $name );
 
             $photo = Photo::create(['file'=>$name]);
-            $input['photo_id'] = $photo->id; 
+            $input['photo_id'] = $photo->id;
         }
 
         $works = $user->works()->create($input);
 
-        $works->tags()->attach($request->input('tags')); 
+        $works->tags()->attach($request->input('tags'));
 
-        return redirect('/dashboard/works'); 
+        return redirect('/dashboard/works');
     }
 
     /**
@@ -89,8 +89,8 @@ class WorksController extends Controller
      */
     public function edit($id)
     {
-        $work = Work::findOrFail($id); 
-        $work_categories = WorkCategory::pluck('name', 'id'); 
+        $work = Work::findOrFail($id);
+        $work_categories = WorkCategory::pluck('name', 'id');
 
         return view('admin.works.edit', compact('work', 'work_categories'));
     }
@@ -104,15 +104,15 @@ class WorksController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $input = $request->all(); 
+         $input = $request->all();
 
         if($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name ); 
+            $file->move('images', $name );
 
             $photo = Photo::create(['file'=>$name]);
-            $input['photo_id'] = $photo->id; 
+            $input['photo_id'] = $photo->id;
         }
 
         Auth::user()->works()->whereId($id)->first()->update($input);
@@ -130,10 +130,13 @@ class WorksController extends Controller
     {
         $work = Work::findOrFail($id);
 
-        unlink(public_path() . '/images/' . $work->photo->file);
+        if(public_path() . '/images/' . $work->photo->file > 0) {
+           unlink(public_path() . '/images/' . $work->photo->file);
+        }
 
         $work->delete();
 
         return redirect('/dashboard/works');
+
     }
 }

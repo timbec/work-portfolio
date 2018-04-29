@@ -2,16 +2,36 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Work extends Model
 {
+   use Sluggable;
+   use SluggableScopeHelpers;
+
+   /**
+    * Return the sluggable configuration array for this model.
+    *
+    * @return array
+    */
+   public function sluggable()
+   {
+      return [
+           'slug' => [
+               'source' => 'title',
+               'onUpdate' => false
+           ]
+      ];
+   }
+   
     protected $fillable = [
     'work_category_id',
     'photo_id',
     'title',
     'website_link',
-    'body', 
+    'body',
     'description'
     ];
 
@@ -26,17 +46,15 @@ class Work extends Model
      * Link our Work Category
      */
     public function work_category(){
-
-          return $this->belongsTo('App\WorkCategory');
-
-      }
+         return $this->belongsTo('App\WorkCategory');
+     }
 
      /**
      * Link our Tag (also used for Post)
      */
       public function tags(){
 
-          return $this->belongsToMany('App\Tag'); 
+          return $this->belongsToMany('App\Tag');
 
       }
 

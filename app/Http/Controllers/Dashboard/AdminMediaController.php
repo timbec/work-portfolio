@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Photo; 
+use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,7 +12,7 @@ class AdminMediaController extends Controller
 {
     public function index() {
 
-        $photos = Photo::all();
+        $photos = Photo::paginate(5);
 
         return view('admin.media.index', compact('photos'));
     }
@@ -45,11 +45,11 @@ class AdminMediaController extends Controller
 
         if($photo->file) {
             unlink(public_path() . '/images/' . $photo->file);
-         
+
            $photo->delete();
         }
 
-        return redirect('/dashboard/media');  
+        return redirect('/dashboard/media');
     }
 
 

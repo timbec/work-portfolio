@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Post; 
-use App\Photo; 
-use App\Category; 
-use App\Tag; 
+use App\Post;
+use App\Photo;
+use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostsCreateRequest;
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests; 
+use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
 class AdminPostsController extends Controller
@@ -22,7 +22,7 @@ class AdminPostsController extends Controller
      */
     public function index(Tag $tag=null)
     {
-        $posts = Post::paginate(5); 
+        $posts = Post::paginate(5);
 
         return view('admin.posts.index', compact('posts') );
     }
@@ -48,25 +48,25 @@ class AdminPostsController extends Controller
      */
     public function store(PostsCreateRequest $request)
     {
-        $input = $request->all(); 
+        $input = $request->all();
 
-        $user = Auth::user(); 
+        $user = Auth::user();
 
-        $post = Post::first(); 
+        $post = Post::first();
 
         if($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name ); 
+            $file->move('images', $name );
 
             $photo = Photo::create(['file'=>$name]);
-            $input['photo_id'] = $photo->id; 
+            $input['photo_id'] = $photo->id;
         }
 
         $posts = $user->posts()->create($input);
-        $posts->tags()->attach($request->input('tags')); 
+        $posts->tags()->attach($request->input('tags'));
 
-        return redirect('/dashboard/posts'); 
+        return redirect('/dashboard/posts');
     }
 
     /**
@@ -88,8 +88,8 @@ class AdminPostsController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::findOrFail($id); 
-        $categories = Category::pluck('name', 'id'); 
+        $post = Post::findOrFail($id);
+        $categories = Category::pluck('name', 'id');
 
         return view('admin.posts.edit', compact('post', 'categories'));
     }
@@ -103,15 +103,15 @@ class AdminPostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->all(); 
+        $input = $request->all();
 
         if($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name ); 
+            $file->move('images', $name );
 
             $photo = Photo::create(['file'=>$name]);
-            $input['photo_id'] = $photo->id; 
+            $input['photo_id'] = $photo->id;
         }
 
         Auth::user()->posts()->whereId($id)->first()->update($input);
@@ -130,11 +130,11 @@ class AdminPostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        if($post->photo->file) {
-             unlink(public_path() . '/images/' . $post->photo->file);
+        if(public_path() . '/images/' . $post->photo->file > 0) {
+           unlink(public_path() . '/images/' . $post->photo->file);
         }
 
-        $post->delete();
+         $post->delete();
 
         return redirect('/dashboard/posts');
 
