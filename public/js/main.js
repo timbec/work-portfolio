@@ -23532,7 +23532,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\nnav ul li {\n   cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\nnav ul li {\n   cursor: pointer;\n}\n.company {\n  position: relative;\n  width: calc(100% / 2 - 1rem);\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  margin-left: 1rem;\n  margin-top: 1rem;\n  padding-top: 0.75rem;\n  border-radius: 6px;\n  background-color: white;\n  -webkit-box-shadow: 0 0 0 1px #c5d0d1;\n          box-shadow: 0 0 0 1px #c5d0d1;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-transform-origin: 10% 50%;\n          transform-origin: 10% 50%;\n  z-index: 1;\n}\n@media (min-width: 800px) {\n.company {\n    width: calc(100% / 3 - 1rem);\n}\n}\n.company-move {\n  -webkit-transition: all 600ms ease-in-out 50ms;\n  transition: all 600ms ease-in-out 50ms;\n}\n.company-enter-active {\n  -webkit-transition: all 300ms ease-out;\n  transition: all 300ms ease-out;\n}\n.company-leave-active {\n  -webkit-transition: all 200ms ease-in;\n  transition: all 200ms ease-in;\n  position: absolute;\n  z-index: 0;\n}\n.company-enter, .company-leave-to {\n  opacity: 0;\n}\n.company-enter {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n.company__data {\n  line-height: 1.3;\n}\n.company__label {\n  font-size: 0.8rem;\n}\n.company__rating {\n  text-align: center;\n}\n.company__info {\n  padding: 0 0.75rem;\n  text-align: center;\n}\n.company__logo {\n  width: 3rem;\n  height: 3rem;\n  margin: 0 auto;\n}\n.company__name {\n  height: 2.5rem;\n  margin: 0.75rem 0;\n  font-size: 1.3rem;\n  font-weight: 200;\n  text-align: center;\n}\n.company__slogan {\n  height: 2rem;\n  text-align: center;\n  font-weight: 400;\n  text-transform: capitalize;\n}\n.company__details {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  margin-top: 1.5rem;\n  padding: 0.5rem 0.75rem;\n  background-color: rgba(197, 208, 209, 0.1);\n  border-top: 1px solid #c5d0d1;\n}\n.company__country:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n.nav {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  white-space: nowrap;\n  margin: 0 1rem;\n  padding: 2rem 0.5rem 1rem;\n  border-bottom: 1px solid #c5d0d1;\n}\n.nav__controls {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.nav__icon {\n  width: 1rem;\n  height: 1rem;\n  fill: currentColor;\n}\n.nav__label {\n  position: relative;\n  margin-left: 1rem;\n  text-transform: capitalize;\n  z-index: 1;\n  cursor: pointer;\n}\n.nav__label::after {\n  content: '\\D7';\n  display: inline-block;\n  color: transparent;\n  width: 0.5rem;\n  font-weight: 400;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  transition: -webkit-transform 150ms ease-in-out;\n  -webkit-transition: -webkit-transform 150ms ease-in-out;\n  transition: transform 150ms ease-in-out;\n  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;\n}\n.nav__label--clear {\n  color: #f68185;\n  opacity: 0;\n  -webkit-transform: translate3d(-25%, 0, 0);\n          transform: translate3d(-25%, 0, 0);\n  pointer-events: none;\n  -webkit-transition: all 275ms ease-in-out;\n  transition: all 275ms ease-in-out;\n}\n.nav__label--filter ~ .nav__label--clear {\n  opacity: 1;\n  -webkit-transform: translate3d(0, 0, 0);\n          transform: translate3d(0, 0, 0);\n  pointer-events: auto;\n}\n.nav__label--filter::after, .nav__label--active::after {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n.nav__label--filter::after {\n  content: '\\2022';\n  color: #46d2c4;\n}\n.nav__label--active::after {\n  content: '\\D7';\n  color: #f68185;\n}\n.dropdown {\n  position: relative;\n  height: 0;\n  overflow: hidden;\n  -webkit-transition: height 350ms;\n  transition: height 350ms;\n}\n.dropdown::after {\n  content: '';\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 1rem;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(white), to(rgba(255, 255, 255, 0)));\n  background-image: linear-gradient(to top, white, rgba(255, 255, 255, 0));\n}\n.dropdown-enter, .dropdown-leave-to {\n  opacity: 0;\n}\n.dropdown-leave, .dropdown-enter-to {\n  opacity: 1;\n}\n.dropdown-enter-active, .dropdown-leave-active {\n  position: absolute;\n  width: 100%;\n  -webkit-transition: opacity 200ms ease-in-out;\n  transition: opacity 200ms ease-in-out;\n}\n.dropdown-enter-active {\n  -webkit-transition-delay: 100ms;\n          transition-delay: 100ms;\n}\n.filters {\n  padding: 0 1rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n}\n.filters__item {\n  margin-top: 0.5rem;\n  margin-right: 0.5rem;\n  padding: 0.25rem 0.5rem;\n  border: 1px solid #c5d0d1;\n  border-radius: 6px;\n  font-size: 0.8rem;\n  line-height: 1.35;\n  cursor: pointer;\n  -webkit-transition: all 275ms;\n  transition: all 275ms;\n}\n.filters__item:hover {\n  border-color: #379a93;\n}\n.filters__item--active {\n  color: white;\n  border-color: #379a93;\n  background-color: #379a93;\n}\n", ""]);
 
 // exports
 
@@ -23568,52 +23568,175 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 // import PortfolioFilter from './PortfolioFilter.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
       return {
-         selected: '',
-         Personal: '',
          works: [],
+         dropdown: { height: 0 },
+         filters: { tags: {}, work_categories: {} },
+         menus: { tags: false, work_categories: false },
          work: {
             title: '',
             featured_image: '',
             work_category: {
                name: ''
             }
+         },
+         tags: [],
+         tag: {
+            name: ''
          }
       };
    },
 
-   methods: {
-      selectButton: function selectButton() {
-         this.clicked = !this.clicked;
-         console.log(this.clicked);
+   computed: {
+      activeMenu: function activeMenu() {
+         var _this = this;
+
+         return Object.keys(this.menus).reduce(function ($s, set, i) {
+            return _this.menus[set] ? i : $s;
+         }, -1);
+      },
+      list: function list() {
+         var _this2 = this;
+
+         var _activeFilters = this.activeFilters,
+             tags = _activeFilters.tags,
+             work_categories = activeFilters.work_categories;
+
+         return this.works.filter(function (_ref) {
+            var tag = _ref.tag,
+                work_categories = _ref.work_cataegories;
+         });
+      },
+      activeFilters: function activeFilters() {
+         var _filters = this.filters,
+             tags = _filters.tags,
+             work_categories = _filters.work_categories;
+
+         return {
+            countries: Object.keys(tags).filter(function (c) {
+               return tags[c];
+            }),
+            work_categories: Object.keys(work_categories).filter(function (c) {
+               return work_categories[c];
+            })
+         };
       }
    },
-   // components: {
-   //    'app-portfolio-filter': PortfolioFilter
-   // },
-   computed: {
-      filteredByCategory: function filteredByCategory() {
-         var filter = new RegExp(this.selected, 'i');
-         console.log(filter);
-         return this.works.filter(function (el) {
-            return el.work_category.name.match(filter);
+   watch: {
+      activeMenu: function activeMenu(index, from) {
+         var _this3 = this;
+
+         if (index === from) return;
+
+         this.$nextTick(function () {
+            if (!_this3.$refs.menu || !_this3.$refs.menu[index]) {
+               _this3.dropdown.height = 0;
+            } else {
+               _this3.dropdown.height = _this3.$refs.menu[index].clientHeight + 16 + 'px';
+            }
          });
       }
    },
-   created: function created() {
-      var _this = this;
 
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/test').then(function (response) {
-         return _this.works = response.data.data;
+   methods: {
+      setFilter: function setFilter(filter, option) {
+         var _this4 = this;
+
+         if (filter === 'tags') {
+            this.filters[filter][option] = !this.filters[filter][option];
+         } else {
+            setTimeout(function () {
+               _this4.clearFilter(filter, option, _this4.filters[filter][option]);
+            }, 100);
+         }
+      },
+      clearFilter: function clearFilter(filter, except, active) {
+         var _this5 = this;
+
+         Object.keys(this.filters[filter]).forEach(function (option) {
+            _this5.filters[filter][option] = except === option && !active;
+         });
+      },
+      clearAllFilters: function clearAllFilters() {
+         Object.keys(this.filters).forEach(this.clearFilter);
+      },
+      setMenu: function setMenu(menu, active) {
+         var _this6 = this;
+
+         Object.keys(this.menus).forEach(function (tab) {
+            _this6.menus[tab] = !active && tab === menu;
+         });
+      }
+   },
+   components: {
+      'icon': { template: '<svg><use :xlink:href="use"/></svg>', props: ['use'] }
+   },
+   beforeMount: function beforeMount() {
+      var _this8 = this;
+
+      var _this7 = this;
+
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/works').then(function (response) {
+         return _this8.works = response.data.data;
       });
 
-      //then(response => console.log(response.data));
+      // works.forEach(function (_ref2) {
+      //   var tag = _ref2.tag,
+      //       work_categories = _ref2.work_categories,
+      //       rating = _ref2.rating;
+      //
+      //   _this7.$set(_this7.filters.works, country, false);
+      //
+      //   work_categories.forEach(function (category) {
+      //     _this7.$set(_this7.filters.categories, category, false);
+      //   });
+      //});
    }
+   // created() {
+   //    Axios.get('/works').then(response =>
+   //        this.works = response.data.data);
+   //
+   //    //then(response => console.log(response.data));
+   // }
 });
 
 /***/ }),
@@ -23630,47 +23753,83 @@ var render = function() {
     [
       _c("h3", [_vm._v("Portfolio")]),
       _vm._v(" "),
-      _c("nav", { attrs: { id: "filter" } }),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.selected,
-              expression: "selected"
-            }
+      _c("nav", { staticClass: "nav" }, [
+        _c(
+          "menu",
+          { staticClass: "nav__controls" },
+          [
+            _c("icon", { staticClass: "nav__icon", attrs: { use: "#filter" } }),
+            _vm._v(" "),
+            _vm._l(_vm.menus, function(active, menu) {
+              return _c(
+                "li",
+                {
+                  staticClass: "nav__label",
+                  class: {
+                    "nav__label--active": active
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.setMenu(menu, active)
+                    }
+                  }
+                },
+                [_vm._v("\n        " + _vm._s(menu) + "\n      ")]
+              )
+            }),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "nav__label nav__label--clear",
+                on: { click: _vm.clearAllFilters }
+              },
+              [_vm._v("Clear all")]
+            )
           ],
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.selected = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
-        [
-          _c("option", { attrs: { default: "", value: "" } }, [_vm._v("All")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Agency")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Client")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Personal")])
-        ]
-      ),
+          2
+        )
+      ]),
       _vm._v(" "),
-      _vm._l(_vm.filteredByCategory, function(work, i) {
+      _vm._l(_vm.filters, function(options, filter) {
+        return _c(
+          "menu",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.menus[filter],
+                expression: "menus[filter]"
+              }
+            ],
+            key: filter,
+            ref: "menu",
+            refInFor: true,
+            staticClass: "filters"
+          },
+          [
+            _vm._l(options, function(active, option) {
+              return _c(
+                "li",
+                {
+                  staticClass: "filters__item",
+                  class: { "filters__item--active": active },
+                  on: {
+                    click: function($event) {
+                      _vm.setFilter(filter, option)
+                    }
+                  }
+                },
+                [_vm._v("\n         " + _vm._s(option) + "\n       ")]
+              )
+            })
+          ],
+          2
+        )
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.works, function(work) {
         return _c("li", [
           _c("figure", [
             _c("img", { attrs: { src: "/images/" + work.featured_image } })
@@ -23679,10 +23838,44 @@ var render = function() {
           _c("h3", [_vm._v(_vm._s(work.title))]),
           _vm._v(" "),
           _c("h6", { staticClass: "work-category", attrs: { span: "" } }, [
-            _vm._v(_vm._s(work.work_category.name))
-          ])
+            _vm._v(_vm._s(work.work_category))
+          ]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "tag__detials" },
+            [
+              _c("p"),
+              _c("h3", [_vm._v("Tags")]),
+              _vm._v(" "),
+              _vm._l(work.tags, function(tag) {
+                return _c("ul", [
+                  _vm._v(
+                    "\n               " + _vm._s(tag.name) + "\n            "
+                  )
+                ])
+              }),
+              _vm._v(" "),
+              _c("p")
+            ],
+            2
+          )
         ])
-      })
+      }),
+      _c(
+        "li",
+        [
+          _c("label", [_vm._v("Category")]),
+          _vm._v(" "),
+          _vm._l(_vm.work.categories, function(work_category) {
+            return _c("div", [
+              _vm._v(' class="company__rating">\n         '),
+              _c("h6", [_vm._v(_vm._s(work_category.name))])
+            ])
+          })
+        ],
+        2
+      )
     ],
     2
   )

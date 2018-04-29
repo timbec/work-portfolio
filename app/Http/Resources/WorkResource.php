@@ -20,7 +20,7 @@ class WorkResource extends JsonResource
           'description' => $this->description,
           'slug' => $this->slug,
           'featured_image' => $this->photo->file,
-          'work_category' => $this->work_category,
+          'work_category' => $this->work_category->name,
           'tags' => $this->tags
       ];
     }

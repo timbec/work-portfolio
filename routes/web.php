@@ -23,6 +23,14 @@ use App\Http\Resources\WorkResource as WorkResource;
 /**
  * REST API
  */
+ Route::get('/works', function() {
+
+    $works = Work::all();
+
+    return WorkResource::collection($works);
+
+ });
+
 Route::get('/test', function() {
 
     $works = Work::all();
@@ -39,30 +47,17 @@ Route::get('/posts', function() {
 
 });
 
-Route::get('/works', function() {
-
-   $works = Work::all();
-
-   return WorkResource::collection($works);
-
-});
 
 Route::get('/work-categories', function() {
 
    $work_categories = WorkCategory::all();
 
    return $work_categories;
-
 });
 
 Route::get('/posts/{id}', function($slug) {
    $post = Post::findBySlugOrFail($slug);
    return $post;
-});
-
-Route::get('/works', function() {
-    $works = Work::all();
-    return $works;
 });
 
 
