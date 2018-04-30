@@ -2,53 +2,61 @@
    <section id="#portfolio">
       <h3>Portfolio</h3>
       <nav class="nav">
-       <menu class="nav__controls">
-         <icon class="nav__icon" use="#filter"></icon>
+  <menu class="nav__controls">
+    <icon class="nav__icon" use="#filter"></icon>
 
-         <li v-for="(active, menu) in menus" class="nav__label"
-           :class="{
-             'nav__label--active' : active
-           }" @click="setMenu(menu, active)">
-           {{ menu }}
-         </li>
-         <li class="nav__label nav__label--clear" @click="clearAllFilters">Clear all</li>
+    <li v-for="(active, menu) in menus" class="nav__label"
+      :class="{
+        'nav__label--active' : active,
+        'nav__label--filter': activeFilters[menu].length
+      }" @click="setMenu(menu, active)">
+      {{ menu }}
+    </li>
 
-       </menu>
-      </nav>
+    <li class="nav__label nav__label--clear" @click="clearAllFilters">Clear all</li>
+  </menu>
 
+</nav>
 
-      <menu v-for="(options, filter) in filters" class="filters"
-        v-show="menus[filter]" ref="menu" :key="filter">
-        <template>
-          <li v-for="(active, option) in options" class="filters__item"
-            :class="{ 'filters__item--active': active }"
-            @click="setFilter(filter, option)">
-            {{ option }}
-          </li>
-        </template>
-      </menu>
-
-     <li v-for="work in works">
-         <figure>
-            <img :src="'/images/' + work.featured_image" />
-         </figure>
-         <h3>{{ work.title }}</h3>
-         <h6 span class="work-category">{{ work.work_category }}</h6>
-         <ul class="tag__detials">
-            <p>
-               <h3>Tags</h3>
-               <ul v-for="tag in work.tags">
-                  {{ tag.name }}
-               </ul>
-            </p>
-         </ul>
-         <li>
-          <label>Category</label>
-          <div v-for="work_category in work.categories"> class="company__rating">
-            <h6>{{ work_category.name }}</h6>
-          </div>
-        </li>
+ <transition-group name="dropdown" tag="section" class="dropdown" :style="dropdown">
+  <menu v-for="(options, filter) in filters" class="filters"
+    v-show="menus[filter]" ref="menu" :key="filter">
+    <template>
+      <li v-for="(active, option) in options" class="filters__item"
+        :class="{ 'filters__item--active': active }"
+        @click="setFilter(filter, option)">
+        {{ option }}
       </li>
+    </template>
+  </menu>
+</transition-group>
+
+
+<transition-group name="company" tag="ul" class="content__list">
+   <!-- https://github.com/SortableJS/Vue.Draggable/issues/144 -->
+  <li class="company" v-for="work in list" :key="work.id">
+     <figure>
+        <img :src="'/images/' + work.featured_image" alt="">
+     </figure>
+    <div class="company__info">
+      <h2 class="company__name">{{ work.title}}</h2>
+    </div>
+
+    <ul class="company__details">
+      <li class="company__data">
+        <label class="company__label">Category</label>
+         {{ work.work_category }}
+      </li>
+
+      <li class="company__data">
+        <label class="company__label">Tags</label>
+        <div v-for="tag in work.tags" class="company__rating">
+          <h6>{{ tag.name }}</h6>
+        </div>
+      </li>
+    </ul>
+  </li>
+  </transition-group>
 
    </section>
 </template>
@@ -61,13 +69,14 @@ import Axios from 'axios';
 export default {
    data() {
       return {
-         works: [],
          dropdown: { height: 0 },
          filters: { tags: {}, work_categories: {}},
          menus: { tags: false, work_categories: false },
+         works: [],
          work: {
             title: '',
             featured_image: '',
+            work_categories: [],
             work_category: {
                name: ''
             }
@@ -75,117 +84,129 @@ export default {
          tags: [],
          tag: {
             name: ''
-         }
+         },
+         companies: [],
+         dropdown: { height: 0 },
+         filters: { tags: {}, work_categories: {} },
+         menus: { tags: false, work_categories: false }
       }
    },
    computed: {
-      activeMenu: function activeMenu() {
-         var _this = this;
+    activeMenu: function activeMenu() {
+      var _this = this;
 
-         return Object.keys(this.menus).reduce(function ($s, set, i) {
-            return _this.menus[set] ? i : $s;
-         }, -1);
-      },
-      list: function list() {
-         var _this2 = this;
+      return Object.keys(this.menus).reduce(function ($$, set, i) {
+        return _this.menus[set] ? i : $$;
+      }, -1);
+    },
+    list: function list() {
+      var _this2 = this;
 
-         var _activeFilters = this.activeFilters,
-            tags = _activeFilters.tags,
-            work_categories = activeFilters.work_categories;
+      var _activeFilters = this.activeFilters,
+          work_categories = _activeFilters.work_categories,
+          tags = _activeFilters.tags;
 
-         return this.works.filter(function(_ref) {
-            var tag = _ref.tag,
-                work_categories = _ref.work_cataegories;
-         });
-      },
-      activeFilters: function activeFilters() {
-         var _filters = this.filters,
-            tags = _filters.tags,
-            work_categories = _filters.work_categories;
 
-         return {
-            countries: Object.keys(tags).filter(function(c) {
-               return tags[c];
-            }),
-            work_categories: Object.keys(work_categories).filter(function(c) {
-               return work_categories[c];
-            })
-         };
+      return this.works.filter(function (_ref) {
+        var work_category = _ref.work_category,
+            keywords = _ref.keywords;
+
+        if (work_categories.length && !~work_categories.indexOf(work_category)) return false;
+        return !tags.length || tags.every(function (cat) {
+          return ~keywords.indexOf(cat);
+        });
+      });
+    },
+    activeFilters: function activeFilters() {
+      var _filters = this.filters,
+          work_categories = _filters.work_categories,
+          tags = _filters.tags;
+
+
+      return {
+        work_categories: Object.keys(work_categories).filter(function (c) {
+          return work_categories[c];
+        }),
+        tags: Object.keys(tags).filter(function (c) {
+          return tags[c];
+        })
+      };
+    }
+  },
+
+  watch: {
+    activeMenu: function activeMenu(index, from) {
+      var _this3 = this;
+
+      if (index === from) return;
+
+      this.$nextTick(function () {
+        if (!_this3.$refs.menu || !_this3.$refs.menu[index]) {
+          _this3.dropdown.height = 0;
+        } else {
+          _this3.dropdown.height = _this3.$refs.menu[index].clientHeight + 16 + 'px';
+        }
+      });
+    }
+  },
+
+  methods: {
+    setFilter: function setFilter(filter, option) {
+      var _this4 = this;
+
+      if (filter === 'work_categories') {
+        this.filters[filter][option] = !this.filters[filter][option];
+      } else {
+        setTimeout(function () {
+          _this4.clearFilter(filter, option, _this4.filters[filter][option]);
+        }, 100);
       }
-   },
-   watch: {
-      activeMenu: function activeMenu(index, from) {
-         var _this3 = this;
+    },
+    clearFilter: function clearFilter(filter, except, active) {
+      var _this5 = this;
 
-         if(index === from) return;
+        Object.keys(this.filters[filter]).forEach(function (option) {
+          _this5.filters[filter][option] = except === option && !active;
+        });
+    },
+    clearAllFilters: function clearAllFilters() {
+      Object.keys(this.filters).forEach(this.clearFilter);
+    },
+    setMenu: function setMenu(menu, active) {
+      var _this6 = this;
 
-         this.$nextTick(function() {
-            if (!_this3.$refs.menu || !_this3.$refs.menu[index]) {
-               _this3.dropdown.height = 0;
-            } else {
-               _this3.dropdown.height = _this3.$refs.menu[index].clientHeight + 16 + 'px';
-            }
-         });
-      }
-   },
+      Object.keys(this.menus).forEach(function (tab) {
+        _this6.menus[tab] = !active && tab === menu;
+      });
+    }
+  },
 
-   methods: {
-       setFilter: function setFilter(filter, option) {
-          var _this4 = this;
+  created() {
+    var _this7 = this;
 
-          if (filter === 'tags') {
-           this.filters[filter][option] = !this.filters[filter][option];
-          } else {
-           setTimeout(function () {
-              _this4.clearFilter(filter, option, _this4.filters[filter][option]);
-           }, 100);
-          }
-       },
-       clearFilter: function clearFilter(filter, except, active) {
-          var _this5 = this;
+    //https://s3-us-west-2.amazonaws.com/s.cdpn.io/450744/mock-data.json
+    // fetch('https://s3-us-west-2.amazonaws.com/s.cdpn.io/450744/mock-data.json')
+    // Axios.get('/works').then(response => console.log(response.data));
+    Axios.get('/works')
+    .then(function (response) {
+      return response.data.data;
+   }).then(function (works) {
+      _this7.works = works;
+      works.forEach(function (_ref2) {
+        var work_category = _ref2.work_category,
+            keywords = _ref2.keywords;
 
-           Object.keys(this.filters[filter]).forEach(function (option) {
-              _this5.filters[filter][option] = except === option && !active;
-           });
-       },
-       clearAllFilters: function clearAllFilters() {
-          Object.keys(this.filters).forEach(this.clearFilter);
-       },
-       setMenu: function setMenu(menu, active) {
-          var _this6 = this;
+        _this7.$set(_this7.filters.work_categories, work_category, false);
 
-          Object.keys(this.menus).forEach(function (tab) {
-           _this6.menus[tab] = !active && tab === menu;
-          });
-       }
-   },
-   components: {
-    'icon': { template: '<svg><use :xlink:href="use"/></svg>', props: ['use'] }
-   },
-   beforeMount: function beforeMount() {
-      var _this7 = this;
-
-      Axios.get('/works').then(response =>
-         this.works = response.data.data);
-
-      // works.forEach(function (_ref2) {
-      //   var tag = _ref2.tag,
-      //       work_categories = _ref2.work_categories,
-      //       rating = _ref2.rating;
-      //
-      //   _this7.$set(_this7.filters.works, country, false);
-      //
-      //   work_categories.forEach(function (category) {
-      //     _this7.$set(_this7.filters.categories, category, false);
-      //   });
-      //});
-   }
-   // created() {
-   //    Axios.get('/works').then(response =>
-   //        this.works = response.data.data);
-   //
-   //    //then(response => console.log(response.data));
-   // }
+        // keywords.forEach(function (work_category) {
+        //   _this7.$set(_this7.filters.work_categories, work_category, false);
+        // });
+      });
+    });
+},
+components: {
+  'icon': { template: '<svg><use :xlink:href="use"/></svg>', props: ['use'] }
+},
 }
 </script>
 

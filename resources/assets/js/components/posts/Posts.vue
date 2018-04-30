@@ -30,7 +30,7 @@
 
 <script>
 import Axios from 'axios';
-import VueMarkdown from 'vue-markdown';
+
 
 export default {
    data: function() {
