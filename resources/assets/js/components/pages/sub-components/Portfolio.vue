@@ -33,7 +33,7 @@
 
 
 <transition-group name="company" tag="ul" class="content__list">
-   <!-- https://github.com/SortableJS/Vue.Draggable/issues/144 -->
+   <!-- https://github.com/SortableJS/Vue.Draggable/issues/144 - for work.id/key issues -->
   <li class="company" v-for="work in list" :key="work.id">
      <figure>
         <img :src="'/images/' + work.featured_image" alt="">
@@ -51,7 +51,7 @@
       <li class="company__data">
         <label class="company__label">Tags</label>
         <div v-for="tag in work.tags" class="company__rating">
-          <h6>{{ tag.name }}</h6>
+          <h6>{{ tag }}</h6>
         </div>
       </li>
     </ul>
@@ -82,10 +82,7 @@ export default {
             }
          },
          tags: [],
-         tag: {
-            name: ''
-         },
-         companies: [],
+         tag: '',
          dropdown: { height: 0 },
          filters: { tags: {}, work_categories: {} },
          menus: { tags: false, work_categories: false }
@@ -109,11 +106,11 @@ export default {
 
       return this.works.filter(function (_ref) {
         var work_category = _ref.work_category,
-            keywords = _ref.keywords;
+            tags = _ref.tags;
 
         if (work_categories.length && !~work_categories.indexOf(work_category)) return false;
         return !tags.length || tags.every(function (cat) {
-          return ~keywords.indexOf(cat);
+          return ~tags.indexOf(cat);
         });
       });
     },
@@ -121,7 +118,6 @@ export default {
       var _filters = this.filters,
           work_categories = _filters.work_categories,
           tags = _filters.tags;
-
 
       return {
         work_categories: Object.keys(work_categories).filter(function (c) {
@@ -153,10 +149,11 @@ export default {
   methods: {
     setFilter: function setFilter(filter, option) {
       var _this4 = this;
-
       if (filter === 'work_categories') {
         this.filters[filter][option] = !this.filters[filter][option];
-      } else {
+     } else if (filter === 'tags') {
+        this.filters[filter][option] = !this.filters[filter][option];
+     } else {
         setTimeout(function () {
           _this4.clearFilter(filter, option, _this4.filters[filter][option]);
         }, 100);
@@ -178,7 +175,7 @@ export default {
       Object.keys(this.menus).forEach(function (tab) {
         _this6.menus[tab] = !active && tab === menu;
       });
-    }
+   }
   },
 
   created() {
@@ -194,13 +191,13 @@ export default {
       _this7.works = works;
       works.forEach(function (_ref2) {
         var work_category = _ref2.work_category,
-            keywords = _ref2.keywords;
+            tags = _ref2.tags;
 
         _this7.$set(_this7.filters.work_categories, work_category, false);
 
-        // keywords.forEach(function (work_category) {
-        //   _this7.$set(_this7.filters.work_categories, work_category, false);
-        // });
+        tags.forEach(function (tag) {
+          _this7.$set(_this7.filters.tags, tag, false);
+        });
       });
     });
 },

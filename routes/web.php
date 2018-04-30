@@ -27,6 +27,8 @@ use App\Http\Resources\WorkResource as WorkResource;
 
     $works = Work::all();
 
+    $tags = Tag::all();
+
     return WorkResource::collection($works);
 
  });
@@ -35,7 +37,12 @@ Route::get('/test', function() {
 
     $works = Work::all();
 
-    return WorkResource::collection($works);
+    $tags = Tag::all();
+
+
+
+
+    return $tags;
 
 });
 

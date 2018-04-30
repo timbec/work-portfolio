@@ -20012,10 +20012,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       },
       tags: [],
-      tag: {
-        name: ''
-      },
-      companies: []
+      tag: ''
     }, _defineProperty(_ref3, 'dropdown', { height: 0 }), _defineProperty(_ref3, 'filters', { tags: {}, work_categories: {} }), _defineProperty(_ref3, 'menus', { tags: false, work_categories: false }), _ref3;
   },
 
@@ -20036,11 +20033,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return this.works.filter(function (_ref) {
         var work_category = _ref.work_category,
-            keywords = _ref.keywords;
+            tags = _ref.tags;
 
         if (work_categories.length && !~work_categories.indexOf(work_category)) return false;
         return !tags.length || tags.every(function (cat) {
-          return ~keywords.indexOf(cat);
+          return ~tags.indexOf(cat);
         });
       });
     },
@@ -20079,8 +20076,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     setFilter: function setFilter(filter, option) {
       var _this4 = this;
-
       if (filter === 'work_categories') {
+        this.filters[filter][option] = !this.filters[filter][option];
+      } else if (filter === 'tags') {
         this.filters[filter][option] = !this.filters[filter][option];
       } else {
         setTimeout(function () {
@@ -20119,13 +20117,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _this7.works = works;
       works.forEach(function (_ref2) {
         var work_category = _ref2.work_category,
-            keywords = _ref2.keywords;
+            tags = _ref2.tags;
 
         _this7.$set(_this7.filters.work_categories, work_category, false);
 
-        // keywords.forEach(function (work_category) {
-        //   _this7.$set(_this7.filters.work_categories, work_category, false);
-        // });
+        tags.forEach(function (tag) {
+          _this7.$set(_this7.filters.tags, tag, false);
+        });
       });
     });
   },
@@ -20269,7 +20267,7 @@ var render = function() {
                   _vm._v(" "),
                   _vm._l(work.tags, function(tag) {
                     return _c("div", { staticClass: "company__rating" }, [
-                      _c("h6", [_vm._v(_vm._s(tag.name))])
+                      _c("h6", [_vm._v(_vm._s(tag))])
                     ])
                   })
                 ],
