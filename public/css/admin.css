@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*Need to create a function that will allow for changing opacity*/
+
+/*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -8059,7 +8061,7 @@ button.close {
 @font-face {
   font-family: 'FontAwesome';
   src: url(/fonts/fontawesome-webfont.eot?7149833697a959306ec3012a8588dcfa);
-  src: url(/fonts/fontawesome-webfont.eot?7149833697a959306ec3012a8588dcfa) format("embedded-opentype"), url(/fonts/fontawesome-webfont.woff?d95d6f5d5ab7cfefd09651800b69bd54) format("woff"), url(/fonts/fontawesome-webfont.ttf?c4668ed2440df82d3fd2f8be9d31d07d) format("truetype"), url(/fonts/fontawesome-webfont.svg?65bcbc899f379216109acd0b6c494618) format("svg");
+  src: url(/fonts/fontawesome-webfont.eot?7149833697a959306ec3012a8588dcfa?#iefix&v=4.2.0) format("embedded-opentype"), url(/fonts/fontawesome-webfont.woff?d95d6f5d5ab7cfefd09651800b69bd54) format("woff"), url(/fonts/fontawesome-webfont.ttf?c4668ed2440df82d3fd2f8be9d31d07d) format("truetype"), url(/fonts/fontawesome-webfont.svg?65bcbc899f379216109acd0b6c494618#fontawesomeregular) format("svg");
   font-weight: normal;
   font-style: normal;
 }

@@ -1,8 +1,7 @@
 <template lang="html">
-   <section id="slider">
-      <h3>Slider</h3>
+   <section id="slider" appear>
       <!-- Make a frame wrapped slider -->
- <div style="width:70%;margin:20px auto;height:400px">
+ <div style="width:100%; height:20em" class="slider-wrapper">
       <!-- Configuring slider components -->
       <slider ref="slider" :pages="pages" :sliderinit="sliderinit" @slide='slide' @tap='onTap' @init='onInit'>
           <!-- Set loading -->
@@ -22,22 +21,28 @@ export default {
         //Image list
         pages:[
           {
-          html: '<div class="slider1">slider1</div>',
-          style: {
-            'background': '#1bbc9b'
-            }
+          html: `<div class="slider1">
+            <a href="">
+               <img src="../images/slider/opera-slider.jpg"
+            </a>
+          </div>`,
+
           },
           {
-            html: '<div class="slider2">slider2</div>',
-            style: {
-              'background': '#4bbfc3'
-            }
+            html: `<div class="slider2">
+             <a href="">
+                <img src="../images/slider/Unbearables_2.jpg"
+             </a>
+           </div>`,
+
           },
           {
-            html: '<div class="slider3">slider3</div>',
-            style: {
-              'background': '#7baabe'
-            }
+            html: `<div class="slider3">
+             <a href="">
+                <img src="../images/slider/writing.jpg"
+             </a>
+           </div>`
+
           }
         ],
         //Sliding configuration [obj]
@@ -45,9 +50,10 @@ export default {
           currentPage: 0,
           thresholdDistance: 500,
           thresholdTime: 100,
-          autoplay:2000,
+          autoplay: 600,
           effect: 'fade',
           loop:true,
+          url: '',
           direction:'horizontal',
           infinite:1,
           slidesToScroll:1,

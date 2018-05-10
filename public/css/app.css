@@ -1,4 +1,221 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(https://fonts.googleapis.com/css?family=Varela+Round);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(https://fonts.googleapis.com/css?family=Varela+Round);html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/*Need to create a function that will allow for changing opacity*/
+
+/*Typography Styles*/
+
+/*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
@@ -9,7 +226,7 @@
 @font-face {
   font-family: 'FontAwesome';
   src: url(/fonts/fontawesome-webfont.eot?7149833697a959306ec3012a8588dcfa);
-  src: url(/fonts/fontawesome-webfont.eot?7149833697a959306ec3012a8588dcfa) format("embedded-opentype"), url(/fonts/fontawesome-webfont.woff?d95d6f5d5ab7cfefd09651800b69bd54) format("woff"), url(/fonts/fontawesome-webfont.ttf?c4668ed2440df82d3fd2f8be9d31d07d) format("truetype"), url(/fonts/fontawesome-webfont.svg?65bcbc899f379216109acd0b6c494618) format("svg");
+  src: url(/fonts/fontawesome-webfont.eot?7149833697a959306ec3012a8588dcfa?#iefix&v=4.2.0) format("embedded-opentype"), url(/fonts/fontawesome-webfont.woff?d95d6f5d5ab7cfefd09651800b69bd54) format("woff"), url(/fonts/fontawesome-webfont.ttf?c4668ed2440df82d3fd2f8be9d31d07d) format("truetype"), url(/fonts/fontawesome-webfont.svg?65bcbc899f379216109acd0b6c494618#fontawesomeregular) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -2182,28 +2399,126 @@
   content: "\F20C";
 }
 
-/*!
- * Start Bootstrap - Blog Post HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
 body {
-  padding-top: 70px;
-  /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Varela Round", Arial, "Helvetica Neue", Helvetica, serif;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  padding: 1em 0;
+  margin: 0;
+}
+
+h1 a,
+h2 a,
+h3 a {
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+
+p {
+  padding: 1em 0;
+  margin: 0;
 }
 
 figure {
-  max-width: 800px;
+  margin: 0;
 }
 
-figure img {
+img {
+  display: block;
   max-width: 100%;
+  height: auto;
 }
 
-footer {
-  margin: 50px 0;
+/*Layouts*/
+
+/*Base Layout Styles*/
+
+[v-cloak] {
+  display: none !important;
 }
+
+#page {
+  padding: 0 1.5em;
+}
+
+/*Header Styles*/
+
+header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #09021d;
+}
+
+header h1 a {
+  color: #09021d;
+}
+
+/*Styles for the Home Page*/
+
+.slider-wrapper {
+  width: 100%;
+  margin: 20px auto;
+  height: 40em;
+}
+
+#portfolio nav {
+  padding: 0;
+  margin: 0;
+}
+
+#portfolio nav .nav__controls {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+#portfolio nav .nav__controls li {
+  list-style: none;
+  padding: 10px 15px;
+}
+
+#portfolio nav .nav__label {
+  background: #09021d;
+  color: white;
+}
+
+#portfolio ul {
+  padding: 0;
+  margin: 0;
+}
+
+li.work {
+  list-style: none;
+}
+
+li.work figure {
+  margin: 0;
+}
+
+li.work figure img {
+  width: 100%;
+}
+
+li.work .company__details {
+  display: none;
+}
+
+/*Navigation Styles*/
 
 .navbar-laravel {
   background-color: #fff;
@@ -2211,18 +2526,5 @@ footer {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-/*Custom Front End Styles*/
-
-body {
-  background: red;
-}
-
-body {
-  font-size: 16px;
-  font-family: "Varela Round", Arial, "Helvetica Neue", Helvetica, serif;
-}
-
-p {
-  font-family: 'Helvetica Neue', serif;
-}
+/*Responsive Styles*/
 

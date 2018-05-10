@@ -1,0 +1,44 @@
+/*Styles for the Home Page*/
+
+.slider-wrapper {
+   width:100%;
+   margin:20px auto;
+   height:40em;
+}
+
+#portfolio {
+   nav {
+      padding: 0;
+      margin: 0;
+      .nav__controls {
+         justify-content: center;
+         padding: 0;
+         margin: 0;
+         margin-bottom: 1em;
+         li {
+            list-style: none;
+            padding: 10px 15px;
+         }
+      }
+      .nav__label {
+         background: $black;
+         color: white;
+      }
+   }
+   ul {
+      padding: 0;
+      margin: 0;
+   }
+}
+li.work {
+   list-style: none;
+   figure {
+      margin: 0;
+      img {
+         width: 100%;
+      }
+   }
+   .company__details {
+      display: none;
+   }
+}

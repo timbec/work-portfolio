@@ -1,16 +1,17 @@
 <template lang="html">
-   <section id="#portfolio">
+   <section id="portfolio">
       <h3>Portfolio</h3>
-      <nav class="nav">
+<!-- Make this into a seperate sub-component -->
+<nav class="nav">
   <menu class="nav__controls">
-    <icon class="nav__icon" use="#filter"></icon>
+    <!-- <icon class="nav__icon" use="#filter"></icon> -->
 
     <li v-for="(active, menu) in menus" class="nav__label"
       :class="{
         'nav__label--active' : active,
         'nav__label--filter': activeFilters[menu].length
       }" @click="setMenu(menu, active)">
-      {{ menu }}
+        {{ menu }}
     </li>
 
     <li class="nav__label nav__label--clear" @click="clearAllFilters">Clear all</li>
@@ -21,6 +22,8 @@
  <transition-group name="dropdown" tag="section" class="dropdown" :style="dropdown">
   <menu v-for="(options, filter) in filters" class="filters"
     v-show="menus[filter]" ref="menu" :key="filter">
+    <!-- <h3>{{ options }}</h3>
+    <h4>{{ filters }}</h4> -->
     <template>
       <li v-for="(active, option) in options" class="filters__item"
         :class="{ 'filters__item--active': active }"
@@ -32,9 +35,10 @@
 </transition-group>
 
 
-<transition-group name="company" tag="ul" class="content__list">
+<transition-group name="company" tag="ul" class="content__list" appear>
    <!-- https://github.com/SortableJS/Vue.Draggable/issues/144 - for work.id/key issues -->
-  <li class="company" v-for="work in list" :key="work.id">
+  <li class="work" v-for="work in list" :key="work.id">
+<!-- This can be a sub component as well -->
      <figure>
         <img :src="'/images/' + work.featured_image" alt="">
      </figure>
@@ -50,12 +54,12 @@
 
       <li class="company__data">
         <label class="company__label">Tags</label>
-        <div v-for="tag in work.tags" class="company__rating">
+        <div v-for="tag in work.keywords" class="company__rating">
           <h6>{{ tag }}</h6>
         </div>
       </li>
     </ul>
-  </li>
+</li><!--.work-->
   </transition-group>
 
    </section>
@@ -106,11 +110,11 @@ export default {
 
       return this.works.filter(function (_ref) {
         var work_category = _ref.work_category,
-            tags = _ref.tags;
+            keywords = _ref.keywords;
 
         if (work_categories.length && !~work_categories.indexOf(work_category)) return false;
         return !tags.length || tags.every(function (cat) {
-          return ~tags.indexOf(cat);
+          return ~keywords.indexOf(cat);
         });
       });
     },
@@ -127,7 +131,13 @@ export default {
           return tags[c];
         })
       };
-    }
+   },
+   replaceFilterName: function replaceFilterName() {
+
+      const menuItems = document.querySelectorAll('.nav__label');
+
+      menuItems[1].innerText = 'Categories';
+   }
   },
 
   watch: {
@@ -140,7 +150,7 @@ export default {
         if (!_this3.$refs.menu || !_this3.$refs.menu[index]) {
           _this3.dropdown.height = 0;
         } else {
-          _this3.dropdown.height = _this3.$refs.menu[index].clientHeight + 16 + 'px';
+          _this3.dropdown.height = _this3.$refs.menu[index].clientHeight + 100 + 'px';
         }
       });
     }
@@ -191,11 +201,11 @@ export default {
       _this7.works = works;
       works.forEach(function (_ref2) {
         var work_category = _ref2.work_category,
-            tags = _ref2.tags;
+            keywords = _ref2.keywords;
 
         _this7.$set(_this7.filters.work_categories, work_category, false);
 
-        tags.forEach(function (tag) {
+        keywords.forEach(function (tag) {
           _this7.$set(_this7.filters.tags, tag, false);
         });
       });

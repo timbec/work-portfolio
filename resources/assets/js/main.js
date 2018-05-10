@@ -23,3 +23,13 @@ new Vue({
     router: router,
     render: h => h(App)
 });
+
+
+/**REGULAR JS**/
+
+/**
+ * Simple Bug Fix to change 'Work_Categories' to 'Category' in the Portfolio filter nav until I can find a proper fix. Could this go in computed? IMPORTANT - currently being called on all pages, creating an error. 
+ */
+ const menuItems = document.querySelectorAll('.nav__label');
+
+ menuItems[1].innerText = 'Categories';

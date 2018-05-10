@@ -1,0 +1,13 @@
+/*Header Styles*/
+
+header {
+   h1 {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      color: $black;
+      a {
+         color: $black;
+      }
+   }
+}

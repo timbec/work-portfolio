@@ -1,5 +1,5 @@
 <template>
-        <div class="">
+        <div id="page">
             <app-header></app-header>
             <router-view></router-view>
             <app-footer></app-footer>
@@ -8,6 +8,6 @@
 
 <script>
     export default {
-      
+
     }
 </script>
