@@ -23,11 +23,26 @@ use App\Http\Resources\WorkResource as WorkResource;
 /**
  * REST API
  */
+ Route::get('/works', function() {
+
+    $works = Work::all();
+
+    $tags = Tag::all();
+
+    return WorkResource::collection($works);
+
+ });
+
 Route::get('/test', function() {
 
     $works = Work::all();
 
-    return WorkResource::collection($works);
+    $tags = Tag::all();
+
+
+
+
+    return $tags;
 
 });
 
@@ -39,20 +54,12 @@ Route::get('/posts', function() {
 
 });
 
-Route::get('/works', function() {
-
-   $works = Work::all();
-
-   return WorkResource::collection($works);
-
-});
 
 Route::get('/work-categories', function() {
 
    $work_categories = WorkCategory::all();
 
    return $work_categories;
-
 });
 
 Route::get('/posts/{id}', function($slug) {
@@ -60,9 +67,9 @@ Route::get('/posts/{id}', function($slug) {
    return $post;
 });
 
-Route::get('/works', function() {
-    $works = Work::all();
-    return $works;
+Route::get('/works/{id}', function($slug) {
+   $work = Work::findBySlugOrFail($slug);
+   return $work;
 });
 
 
@@ -73,8 +80,10 @@ Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about' );
 Route::get('/contact', 'PagesController@contact' );
 
-Route::get('/blog', 'PostsController@index' );
+Route::get('/projects', 'WorksController@index' );
+Route::get('projects/{id}', ['as'=>'project.work', 'uses'=>'WorksController@work']);
 
+Route::get('/blog', 'PostsController@index' );
 Route::get('blog/{id}', ['as'=>'blog.post', 'uses'=>'PostsController@post']);
 
 Auth::routes();

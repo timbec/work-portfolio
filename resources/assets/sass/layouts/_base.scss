@@ -1,0 +1,10 @@
+/*Base Layout Styles*/
+
+[v-cloak] {
+   display: none !important;
+}
+
+#page {
+   transition: margin-left .5s;
+   padding: 0 5%;
+}

@@ -1,8 +1,7 @@
 <template lang="html">
-   <section id="slider">
-      <h3>Slider</h3>
+   <section id="slider" appear>
       <!-- Make a frame wrapped slider -->
- <div style="width:70%;margin:20px auto;height:400px">
+ <div style="width:100%; height:20em" class="slider-wrapper">
       <!-- Configuring slider components -->
       <slider ref="slider" :pages="pages" :sliderinit="sliderinit" @slide='slide' @tap='onTap' @init='onInit'>
           <!-- Set loading -->
@@ -14,6 +13,9 @@
 <!-- https://drewjbartlett.com/demos/vue-flickity/ -->
 <!-- https://warpcgd.github.io/vue-concise-slider/#/config?id=style -->
 <!-- Might want to look at this: https://github.com/SSENSE/vue-carousel#installation -->
+<!-- Build Own: https://matthiashager.com/image-slider-vuejs-tutorial
+https://www.youtube.com/watch?v=zNxMigzqgL4
+ -->
 <script>
 import slider from 'vue-concise-slider'// import slider components
 export default {
@@ -22,37 +24,41 @@ export default {
         //Image list
         pages:[
           {
-          html: '<div class="slider1">slider1</div>',
-          style: {
-            'background': '#1bbc9b'
-            }
+          html: `<div class="slider1">
+            <a href="">
+               <img src="../images/slider/opera-slider.jpg"
+            </a>
+          </div>`,
+
           },
           {
-            html: '<div class="slider2">slider2</div>',
-            style: {
-              'background': '#4bbfc3'
-            }
+            html: `<div class="slider2">
+             <a href="">
+                <img src="../images/slider/Unbearables_2.jpg"
+             </a>
+           </div>`,
+
           },
           {
-            html: '<div class="slider3">slider3</div>',
-            style: {
-              'background': '#7baabe'
-            }
+            html: `<div class="slider3">
+             <a href="">
+                <img src="../images/slider/Writing.jpg"
+             </a>
+           </div>`
+
           }
         ],
         //Sliding configuration [obj]
         sliderinit: {
-          currentPage: 0,
-          thresholdDistance: 500,
-          thresholdTime: 100,
-          autoplay:2000,
-          effect: 'fade',
-          loop:true,
-          direction:'horizontal',
-          infinite:1,
-          slidesToScroll:1,
-          timingFunction: 'ease',
-          duration: 500
+           currentPage: 0,
+         thresholdDistance: 500,
+         thresholdTime: 100,
+         autoplay:5000,
+         loop:true,
+         direction:'horizontal',
+         infinite:1,
+         slidesToScroll:1,
+         effect: 'fade'
         }
       }
     },

@@ -17,7 +17,7 @@ class Post extends JsonResource
         return [
            'title' => $this->title,
            'body' => $this->body,
-           'slug' => $this->slug, 
+           'slug' => $this->slug,
            'featured_image' => $this->photo->file,
            'excerpt' => $this->excerpt,
            'category' => $this->category,

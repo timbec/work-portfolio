@@ -1,13 +1,15 @@
 <template>
-        <div class="">
+        <div id="page">
             <app-header></app-header>
-            <router-view></router-view>
-            <app-footer></app-footer>
-        </div>
+            <div id="main-content">
+               <router-view></router-view>
+               <app-footer></app-footer>
+            </div>
+         </div>
 </template>
 
 <script>
     export default {
-      
+
     }
 </script>
