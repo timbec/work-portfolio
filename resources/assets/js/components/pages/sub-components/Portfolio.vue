@@ -43,7 +43,12 @@
         <img :src="'/images/' + work.featured_image" alt="">
      </figure>
     <div class="company__info">
-      <h2 class="company__name">{{ work.title}}</h2>
+
+      <h2 class="company__name">
+         <router-link :to="/projects/ + work.slug">
+         {{ work.title}}
+         </router-link>
+      </h2>
     </div>
 
     <ul class="company__details">
@@ -80,6 +85,7 @@ export default {
          work: {
             title: '',
             featured_image: '',
+            slug: '',
             work_categories: [],
             work_category: {
                name: ''

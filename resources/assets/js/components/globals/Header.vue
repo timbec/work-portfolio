@@ -1,28 +1,27 @@
 <template lang="html">
 <header id="masthead">
 
-  <h1>
-    <a href="/">
+  <h1 id="site-title">
+     <router-link to="/">
+   <span class="title">
    Tim Beckett
-    </a>
-    <span class="tagline">
-      Web Portfolio
-    </span>
+   </span>
+   <span class="tagline">
+     Web Portfolio
+   </span>
+      </router-link>
   </h1>
-
-   <nav class="menu">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/blog">Blog</a></li>
-            </ul>
-    </nav>
+  <app-menu></app-menu>
 </header>
 </template>
 
 <script>
+import Menu from './sub-components/Menu.vue';
 export default {
+   props: ['main'],
+   components: {
+      'app-menu': Menu
+   }
 }
 </script>
 

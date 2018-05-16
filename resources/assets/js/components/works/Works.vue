@@ -1,32 +1,12 @@
 <template lang="html">
-   <section id="post-list">
-      <h3>Blog</h3>
-      <li v-for="post in posts">
-      <figure>
-         <img :src="'/images/' + post.featured_image" />
-      </figure>
-      <div class="post-meta">
-       <h3>
-          <router-link :to="/blog/ + post.slug">
-          {{ post.title }}
-          </router-link>
-
-       </h3>
-       <p v-html="post.excerpt"></p>
-       <p v-if="post.category">
-          <h5>Category: </h5> {{ post.category.name }}
-       </p>
-      <ul v-if="post.tags">
-          <h5>Tags: </h5>
-         <li v-for="tag in post.tags">
-             {{ tag.name }}
-          </li>
-
-      </ul>
-    </div>
-    </li>
+   <section>
+        <h1>Projects</h1>
+        <li v-for="work in works">
+           <router-link :to="/projects/ + work.slug">
+           {{ work.title }}
+           </router-link>
+        </li>
    </section>
-
 </template>
 
 <script>
@@ -36,8 +16,8 @@ import Axios from 'axios';
 export default {
    data: function() {
          return {
-               posts: [],
-               post: {
+               works: [],
+               work: {
                   title: '',
                   body: '',
                   slug: '',
@@ -61,7 +41,7 @@ export default {
          }
       },
        created() {
-           Axios.get('/posts').then(response => this.posts = response.data.data);
+           Axios.get('/works').then(response => this.works = response.data.data);
 
            //then(response => console.log(response.data.data));
        }
