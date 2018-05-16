@@ -1,0 +1,12 @@
+/*800px and up*/
+
+.menu-container {
+   display: flex;
+   justify-content: center;
+   .menu.sidenav {
+      padding-top: 0; 
+      ul {
+         opacity: 1 !important;
+      }
+   }
+}

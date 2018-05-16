@@ -380,6 +380,12 @@ module.exports = {
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(14);
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -481,7 +487,7 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 var g;
@@ -506,12 +512,6 @@ try {
 
 module.exports = g;
 
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(14);
 
 /***/ }),
 /* 7 */
@@ -1009,7 +1009,7 @@ process.umask = function() { return 0; };
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(7);
 var Axios = __webpack_require__(16);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(5);
 
 /**
  * Create an instance of Axios
@@ -1092,7 +1092,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(5);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(25);
 var dispatchRequest = __webpack_require__(26);
@@ -1631,7 +1631,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(27);
 var isCancel = __webpack_require__(10);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(5);
 var isAbsoluteURL = __webpack_require__(28);
 var combineURLs = __webpack_require__(29);
 
@@ -6818,7 +6818,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)))
 
 /***/ }),
 /* 35 */
@@ -17249,7 +17249,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(6);
+window.axios = __webpack_require__(4);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -34387,7 +34387,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(12)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(12)(module)))
 
 /***/ }),
 /* 40 */
