@@ -1,1 +1,9 @@
 /*Responsive Styles*/
+
+@media only screen and (min-width: 600px) {
+   @import '600';
+}
+
+@media only screen and (min-width: 800px) {
+   @import '800up';
+}

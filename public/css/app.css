@@ -2549,3 +2549,28 @@ li.work .company__details {
 
 /*Responsive Styles*/
 
+@media only screen and (min-width: 600px) {
+  /*600px and up*/
+}
+
+@media only screen and (min-width: 800px) {
+  /*800px and up*/
+
+  .menu-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .menu-container .menu.sidenav {
+    padding-top: 0;
+  }
+
+  .menu-container .menu.sidenav ul {
+    opacity: 1 !important;
+  }
+}
+
