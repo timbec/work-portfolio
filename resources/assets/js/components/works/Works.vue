@@ -3,6 +3,7 @@
         <h1>Projects</h1>
         <li v-for="work in works">
            <router-link :to="/projects/ + work.slug">
+           <img :src="'images/' + work.featured_image" />
            {{ work.title }}
            </router-link>
         </li>

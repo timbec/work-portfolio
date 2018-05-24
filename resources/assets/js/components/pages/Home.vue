@@ -1,5 +1,5 @@
 <template lang="html">
-   <section>
+   <section id="front-page-container">
       <app-intro></app-intro>
       <app-slider></app-slider>
       <app-portfolio></app-portfolio>
@@ -14,7 +14,7 @@ import Portfolio from './sub-components/Portfolio.vue';
 export default {
    data: function() {
       return {
-         message: ''
+         message: 'this is a message'
       }
    },
    components: {

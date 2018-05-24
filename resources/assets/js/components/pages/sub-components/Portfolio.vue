@@ -41,15 +41,16 @@
 <!-- This can be a sub component as well -->
      <figure>
         <img :src="'/images/' + work.featured_image" alt="">
-     </figure>
-    <div class="company__info">
+        <figcaption class="overlay company__info">
 
       <h2 class="company__name">
          <router-link :to="/projects/ + work.slug">
          {{ work.title}}
          </router-link>
       </h2>
-    </div>
+    </figcaption>
+     </figure>
+
 
     <ul class="company__details">
       <li class="company__data">
@@ -223,7 +224,7 @@ components: {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 nav ul li {
    cursor: pointer;
 }
@@ -301,12 +302,6 @@ nav ul li {
   text-transform: capitalize;
 }
 .company__details {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-  padding: 0.5rem 0.75rem;
-  background-color: rgba(197, 208, 209, 0.1);
-  border-top: 1px solid #c5d0d1;
 }
 .company__country:hover {
   text-decoration: underline;
@@ -315,7 +310,7 @@ nav ul li {
 
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   white-space: nowrap;
   margin: 0 1rem;
@@ -336,6 +331,7 @@ nav ul li {
   text-transform: capitalize;
   z-index: 1;
   cursor: pointer;
+  border-radius: 4px;
 }
 .nav__label::after {
   content: '\00d7';

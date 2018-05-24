@@ -14,14 +14,22 @@ class Post extends JsonResource
      */
     public function toArray($request)
     {
+         $tags = $this->tags;
+         $tagArray = [];
+
+         foreach($tags as $tag ) {
+             array_push($tagArray, $tag->name);
+         }
+
         return [
+           'id' => $this->id,
            'title' => $this->title,
            'body' => $this->body,
            'slug' => $this->slug,
            'featured_image' => $this->photo->file,
            'excerpt' => $this->excerpt,
-           'category' => $this->category,
-           'tags' => $this->tags
+           'category' => $this->category->name,
+           'keywords' => $tagArray
         ];
     }
 }

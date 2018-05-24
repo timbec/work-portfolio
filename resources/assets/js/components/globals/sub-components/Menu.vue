@@ -17,13 +17,13 @@
                       <router-link to="/">Home</router-link>
                    </li>
                    <li @click="closeNav">
-                      <router-link :to="{ path: 'about' }">About</router-link>
+                      <router-link :to="{ path: '/about' }">About</router-link>
                    </li>
                    <li @click="closeNav">
-                      <router-link :to="{ path: 'contact' }">Contact</router-link>
+                      <router-link :to="{ path: '/contact' }">Contact</router-link>
                    </li>
                    <li @click="closeNav">
-                      <router-link :to="{ path: 'blog' }">Blog</router-link>
+                      <router-link :to="{ path: '/blog' }">Blog</router-link>
                    </li>
                </ul>
       </nav>
@@ -73,7 +73,7 @@ export default {
    z-index: 1;
    top: 0;
    left: 0;
-   background-color: #111;
+   background-color: #09021d;
    padding-top: 60px;
    transition: 0.5s;
 }
@@ -82,13 +82,13 @@ export default {
    padding: 8px 8px 8px 32px;
    text-decoration: none;
    font-size: 25px;
-   color: #818181;
+   color: #fff;
    display: block;
    transition: 0.3s;
 }
 
 .sidenav a:hover {
-   color: #f1f1f1;
+   color: red;
 }
 
 .sidenav .closebtn {
@@ -132,7 +132,7 @@ left: 0;
 .bar1, .bar2, .bar3 {
 width: 35px;
 height: 5px;
-background-color: #333;
+background-color: #09021d;
 margin: 6px 0;
 transition: 0.4s;
 }
@@ -159,7 +159,7 @@ transition: 0.4s;
    .sidenav a {font-size: 18px; }
 }
 
-@media screen and (min-width: 800px ) {
+@media screen and (min-width: 600px ) {
    .toggleNav {
       display: none;
    }

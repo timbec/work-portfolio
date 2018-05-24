@@ -1,12 +1,16 @@
 /*800px and up*/
 
-.menu-container {
-   display: flex;
-   justify-content: center;
-   .menu.sidenav {
-      padding-top: 0; 
-      ul {
-         opacity: 1 !important;
-      }
-   }
+#front-page-container {
+    #portfolio {
+        .content__list {
+            justify-content: flex-start;
+            li {
+                width: 32%;
+                margin-right: 1.667%; 
+            }
+            li.work:nth-child(3) {
+                margin-right: 0;
+            }
+        }
+    }
 }

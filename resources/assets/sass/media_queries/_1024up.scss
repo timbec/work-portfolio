@@ -1,0 +1,18 @@
+/*1024 and up*/
+
+#front-page-container {
+    #portfolio {
+        .content__list {
+            li {
+                width: 24%;
+                margin-right: 1.3333%; 
+            }
+            li.work:nth-child(3) {
+                margin-right: 1%; 
+            }
+            li:nth-child(4) {
+                margin-right: 0; 
+            }
+        }
+    }
+}
