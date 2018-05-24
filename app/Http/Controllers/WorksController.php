@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Work;
+use App\Tag; 
+use App\WorkCategory;
 use Illuminate\Http\Request;
 
 class WorksController extends Controller
@@ -22,6 +24,7 @@ class WorksController extends Controller
     public function work($slug){
 
      $work = Work::findBySlugOrFail($slug);
+     $tags = Tag::all();
 
      return view('works.work', compact('work'));
 

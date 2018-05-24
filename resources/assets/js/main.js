@@ -1,5 +1,5 @@
 window.Vue = require('vue');
-require('./jquery');
+import jQuery from 'jquery';
 
 import VueRouter from 'vue-router';
 import App from './components/App.vue';
@@ -31,7 +31,15 @@ new Vue({
  * Simple Bug Fix to change 'Work_Categories' to 'Category' in the Portfolio filter nav until I can find a proper fix. Could this go in computed? IMPORTANT - currently being called on all pages, creating an error.
  */
  const menuItems = document.querySelectorAll('.nav__label');
- console.log(menuItems.length);
 if(menuItems.length > 0) {
        menuItems[1].innerText = 'Categories';
 }
+
+// const articleEl = document.querySelectorAll('article');
+// console.log(articleEl[0].childNodes[2].childNodes);
+
+(function($){
+
+
+
+})(jQuery);

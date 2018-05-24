@@ -1,6 +1,13 @@
 <template lang="html">
    <footer class="container text-center">
-      <p>{{ footer_text }}</p>
+      <ul class="footer-links">
+       <li><a href="https://www.linkedin.com/in/timbeckett1/">Linkedin</a></li>
+        <li><a href="https://twitter.com/tim_beckett">Twitter</a></li>  
+        <li><a href="https://github.com/timbec">Github</a></li> 
+        <li><a href="https://codepen.io/timbeckett/">CodePen</a></li> 
+       </ul><!---.footer-links-->
+
+       <p>&copy; Tim Beckett 2018</p>
       <p>
            <a href="#">Back to top</a>
       </p>
@@ -12,7 +19,7 @@
 export default {
    data: function(){
        return {
-           footer_text: 'This is the footer text.'//wp_rest_api.footer_text
+          
        }
    }
 }
