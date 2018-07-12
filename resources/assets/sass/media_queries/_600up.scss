@@ -9,10 +9,22 @@
    }
    .menu.sidenav {
       padding-top: 0;
+      width: 500px; 
       ul {
          opacity: 1 !important;
+         padding: 0; 
+         display: flex; 
+         justify-content: space-between; 
+         li {
+             min-height: 50px; //necessary so height doesn't change on hover state. 
+             padding: 0 20px; 
+         }
          a {
              color: $black; 
+             padding: 8px 0; 
+             &:hover {
+                 border-bottom: 5px solid $red; 
+             }
          }
       }
    }
@@ -129,5 +141,8 @@ article > * {
     }
     aside {
         grid-column: 3;
+        ul {
+            margin-top: 90px; 
+        }
     }
 }

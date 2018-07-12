@@ -59,74 +59,72 @@ https://simplemde.com/
         @include('includes.form_error')
     </div>
 
+@endsection
+    @section('styles')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+    @stop
+
     @section('scripts')
-    <!-- <script src="/js/ckeditor.js"></script> -->
-
-    <script src="/js/summernote.js"></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script> -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
     <script>
-     // var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
+    /**
+     * https://stackoverflow.com/questions/37839562/summernote-codeblock-button
+     */
+    var CodeButton = function (context) {
+            var ui = $.summernote.ui;
 
-     //https://stackoverflow.com/questions/21628222/summernote-image-upload
-    $('#summernote').summernote({
-    height: ($(window).height() - 300)
-}).code().replace(/<\/?[^>]+(>|$)/g, "");
+            // create button
+            var button = ui.button({
+                contents: 'Code block',
+                tooltip: 'insert Code',
+                click: function () {
 
-function uploadImage(image) {
-    var data = new FormData();
-    console.log(data);
-    data.append("image", image);
-    $.ajax({
-        url: '/images',
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: data,
-        type: "post",
-        success: function(url) {
-            var image = $('<img>').attr('src', 'http://' + url);
-            $('#summernote').summernote("insertNode", image[0]);
-        },
-        error: function(data) {
-            console.log(data);
+                    context.invoke('editor.pasteHTML', '<pre><code class="html">Code here.</code></pre>');
         }
-    });
+      });
+
+      return button.render();   // return button as jquery object
+    }
+
+    var HelloButton = function (context) {
+  var ui = $.summernote.ui;
+
+  // create button
+  var button = ui.button({
+    contents: '<i class="fa fa-child"/> Hello',
+    tooltip: 'hello',
+    click: function () {
+      // invoke insertText method with 'hello' on editor module.
+      context.invoke('editor.insertText', 'hello');
+    }
+  });
+
+  return button.render();   // return button as jquery object
 }
+//You can see render() which returns jquery object as button.
 
-        //$('#summernote').summernote();
 
-        // $('#summernote').summernote({
-        //     height: 300,
-        //     onImageUpload: function(files, editor, welEditable) {
-        //         sendFile(files[0], editor, welEditable);
-        //     }
-        // });
-        // function sendFile(file, editor, welEditable) {
-        //     data = new FormData();
-        //     console.log(data);
-        //     data.append("file", file);
-        //     $.ajax({
-        //         data: data,
-        //         type: "POST",
-        //         url: "/uploader.php",
-        //         cache: false,
-        //         contentType: false,
-        //         processData: false,
-        //         success: function(url) {
-        //             editor.insertImage(welEditable, url);
-        //         }
-        //     });
-        // }
 
-        // $('#summernote').summernote({
-        // onImageUpload: function(files, editor, welEditable) {
-        //     sendFile(files[0], editor, welEditable);
-        // }
-//});
+    //$(document).ready(function() {
+      $('#summernote').summernote({
+      minHeight: 200,
+                    toolbar: [
+    					['style', ['style']],
+                        ['mybutton', ['insertCode']],
+    					['font', ['bold', 'italic', 'underline', 'clear']],
+    					['para', ['ul', 'ol']],
+    					['height', ['height']],
+    					['insert', ['link', 'picture']],
+    					['view', ['fullscreen', 'codeview']],
+    					['help', ['help']]
+    				],
+
+                    buttons: {
+                        insertCode: CodeButton
+                    }
+    });
+    //});
 
     </script>
     @stop
-
-@stop
