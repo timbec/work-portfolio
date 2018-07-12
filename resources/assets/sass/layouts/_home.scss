@@ -17,8 +17,13 @@
          margin-bottom: 1em;
          li {
             list-style: none;
-            padding: 10px 5px 10px 10px;
+            height: 30px; 
+            padding: 5px 0;
             text-transform: uppercase;
+            &:hover {
+                 padding-bottom: 0; 
+                 border-bottom: 5px solid $red;
+            }
          }
       }
       .nav__label {
@@ -80,7 +85,11 @@ li.work {
                 width: 100%;
                 a {
                     color: white;
+                    &:hover {
+                        color: white; 
+                    }
                 }
+                
             }
         }
     }

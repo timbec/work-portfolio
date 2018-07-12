@@ -224,7 +224,7 @@ components: {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 nav ul li {
    cursor: pointer;
 }
@@ -420,11 +420,13 @@ nav ul li {
   transition: all 275ms;
 }
 .filters__item:hover {
-  border-color: #379a93;
+  background: #C6372C; 
+  color: #fff; 
+  border-color: #fff;
 }
 .filters__item--active {
   color: white;
-  border-color: #379a93;
-  background-color: #379a93;
+  border-color: #012C52;
+  background-color: #012C52;
 }
 </style>

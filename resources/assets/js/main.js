@@ -1,11 +1,13 @@
 window.Vue = require('vue');
-import jQuery from 'jquery';
+
 
 import VueRouter from 'vue-router';
 import App from './components/App.vue';
 import Header from './components/globals/Header.vue';
 import Footer from './components/globals/Footer.vue';
+import BackToTop from './components/globals/sub-components/BackToTop.vue';
 import { routes } from './routes';
+import jQuery from 'jquery';
 
 Vue.use(VueRouter);
 
@@ -17,6 +19,7 @@ const router = new VueRouter({
 
 Vue.component('app-header', Header);
 Vue.component('app-footer', Footer);
+Vue.component('app-back-to-top', BackToTop);
 
 new Vue({
     el: '#content',

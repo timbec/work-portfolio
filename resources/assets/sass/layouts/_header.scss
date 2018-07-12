@@ -9,6 +9,9 @@ header {
       z-index: 9999;
       a {
          color: $black;
+         &:hover {
+             color: $blue; 
+         }
          .title {
             font-size: 40px;
             text-align: center;

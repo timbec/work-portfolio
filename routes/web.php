@@ -9,8 +9,8 @@ use App\WorkCategory;
 use Illuminate\Http\Request;
 use App\Http\Resources\Post as PostResource;
 use App\Http\Resources\WorkResource as WorkResource;
-use App\Http\Resources\WorkSingle as WorkSingle; 
-use App\Http\Resources\PostSingle as PostSingle; 
+use App\Http\Resources\WorkSingle as WorkSingle;
+use App\Http\Resources\PostSingle as PostSingle;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,8 @@ use App\Http\Resources\PostSingle as PostSingle;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use Illuminate\Support\Facades\Mail; 
 
 /**
  * REST API
@@ -64,18 +66,23 @@ Route::get('/work-categories', function() {
 
 Route::get('/posts/{id}', function($slug) {
    $post = Post::findBySlugOrFail($slug);
-   
+
    return new PostSingle($post);
 });
 
 Route::get('/works/{id}', function($slug) {
    $work = Work::findBySlugOrFail($slug);
-   $tags = Tag::all(); 
-   $work_categories = WorkCategory::all(); 
-   
+   $tags = Tag::all();
+   $work_categories = WorkCategory::all();
+
    return new WorkSingle($work);
 });
 
+//Contact Forms
+Route::get('contact',
+    ['as' => 'contact', 'uses' => 'ContactController@create']);
+Route::post('contact',
+    ['as' => 'contact_store', 'uses' => 'ContactController@store']);
 
 /**
  * Pages Controller

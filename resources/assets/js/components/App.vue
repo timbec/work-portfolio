@@ -5,6 +5,7 @@
                <router-view></router-view>
                <app-footer></app-footer>
             </div>
+            <app-back-to-top></app-back-to-top>
          </div>
 </template>
 

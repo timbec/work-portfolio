@@ -176,10 +176,16 @@ transition: 0.4s;
 
    .sidenav ul {
       display: flex;
+      padding: 0; 
    }
 
    .sidenav ul li {
       list-style: none;
+   }
+
+      .sidenav ul li a {
+      list-style: none;
+      padding: 8px 20px; 
    }
 
 }

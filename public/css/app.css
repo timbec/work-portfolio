@@ -2480,6 +2480,10 @@ header h1 a {
   color: #09021d;
 }
 
+header h1 a:hover {
+  color: #012C52;
+}
+
 header h1 a .title {
   font-size: 40px;
   text-align: center;
@@ -2516,8 +2520,14 @@ header h1 a .tagline {
 
 #portfolio nav .nav__controls li {
   list-style: none;
-  padding: 10px 5px 10px 10px;
+  height: 30px;
+  padding: 5px 0;
   text-transform: uppercase;
+}
+
+#portfolio nav .nav__controls li:hover {
+  padding-bottom: 0;
+  border-bottom: 5px solid #C6372C;
 }
 
 #portfolio nav .nav__label {
@@ -2604,6 +2614,10 @@ figure figcaption h2 a {
   color: white;
 }
 
+figure figcaption h2 a:hover {
+  color: white;
+}
+
 figure:hover figcaption {
   opacity: 0.8;
 }
@@ -2660,6 +2674,7 @@ aside > ul {
 }
 
 aside > ul li {
+  text-align: center;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2737,14 +2752,32 @@ footer p {
 
   .menu-container .menu.sidenav {
     padding-top: 0;
+    width: 500px;
   }
 
   .menu-container .menu.sidenav ul {
     opacity: 1 !important;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .menu-container .menu.sidenav ul li {
+    min-height: 50px;
+    padding: 0 20px;
   }
 
   .menu-container .menu.sidenav ul a {
     color: #09021d;
+    padding: 8px 0;
+  }
+
+  .menu-container .menu.sidenav ul a:hover {
+    border-bottom: 5px solid #C6372C;
   }
 
   nav.nav {
@@ -2887,6 +2920,10 @@ footer p {
 
   #blog-content aside {
     grid-column: 3;
+  }
+
+  #blog-content aside ul {
+    margin-top: 90px;
   }
 }
 
