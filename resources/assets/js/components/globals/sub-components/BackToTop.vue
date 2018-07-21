@@ -42,7 +42,7 @@ export default {
 <style scoped>
     .goTop {
         border-radius: 5px;
-        background-color: #c6372c;
+        background-color: #09021d;
         position: fixed;
         width: 45px;
         height: 45px;
@@ -61,10 +61,10 @@ export default {
     .goTop:hover {
         opacity: 1;
         background-color: #fff;
-        border: 2px solid #c6372c;
+        border: 2px solid #09021d;
     }
     .goTop:hover > .fa {
-       color: #c6372c;
+       color: #09021d;
     }
 
 

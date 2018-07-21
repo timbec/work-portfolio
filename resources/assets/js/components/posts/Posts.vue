@@ -1,6 +1,6 @@
 <template lang="html">
    <section id="blog-list-content">
-      <h3>Blog</h3>
+      <h1>Blog</h1>
       <nav class="nav">
         <menu class="nav__controls">
           <!-- <icon class="nav__icon" use="#filter"></icon> -->
@@ -47,7 +47,7 @@
                 </figcaption>
                </router-link>
             </figure>
-      
+
           <ul class="company__details">
              <li class="company__data">
                <label class="company__label">Category</label>
@@ -282,7 +282,7 @@ nav ul li {
   height: 2.5rem;
   font-size: 1.3rem;
   font-weight: 200;
-  color: white; 
+  color: white;
   text-align: center;
 }
 .company__slogan {
@@ -413,11 +413,11 @@ nav ul li {
   transition: all 275ms;
 }
 .filters__item:hover {
-  border-color: #379a93;
+  border-color: #09021d;
 }
 .filters__item--active {
   color: white;
-  border-color: #379a93;
-  background-color: #379a93;
+  border-color: #09021d;
+  background-color: #09021d;
 }
 </style>
