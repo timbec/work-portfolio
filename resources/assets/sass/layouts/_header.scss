@@ -9,8 +9,9 @@ header {
       z-index: 9999;
       a {
          color: $black;
+         z-index: 999;
          &:hover {
-             color: $blue; 
+             color: $red;
          }
          .title {
             font-size: 40px;
@@ -22,6 +23,11 @@ header {
              float: left;
              margin-top: 20px;
          }
+      }
+   }
+   h1.mobile-menu-title {
+      a {
+         color: white; 
       }
    }
 }

@@ -1,4 +1,12 @@
 /*600px and up*/
+header#masthead {
+   h1#site-title {
+      padding-bottom: .2em;
+      a {
+         color: $black;
+      }
+   }
+}
 
 .menu-container {
    display: flex;
@@ -9,21 +17,21 @@
    }
    .menu.sidenav {
       padding-top: 0;
-      width: 500px; 
+      width: 500px;
       ul {
          opacity: 1 !important;
-         padding: 0; 
-         display: flex; 
-         justify-content: space-between; 
+         padding: 0;
+         display: flex;
+         justify-content: space-between;
          li {
-             min-height: 50px; //necessary so height doesn't change on hover state. 
-             padding: 0 20px; 
+             min-height: 50px; //necessary so height doesn't change on hover state.
+             padding: 0 20px;
          }
          a {
-             color: $black; 
-             padding: 8px 0; 
+             color: $black;
+             padding: 8px 0;
              &:hover {
-                 border-bottom: 5px solid $red; 
+                 border-bottom: 5px solid $red;
              }
          }
       }
@@ -35,22 +43,22 @@ nav.nav {
 }
 
 menu.filters {
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
 }
 
 /*Front Page*/
 #front-page-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    grid-column-gap: 10px; 
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
     #portfolio {
-        grid-column: 1/-1; 
+        grid-column: 1/-1;
         .content__list {
-            display: flex; 
-            flex-direction: row; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
             li {
                 width:45%;
             }
@@ -62,7 +70,7 @@ menu.filters {
 /*Work Pages*/
 
 #work-content {
-  grid-template-columns: repeat(5, 1fr); 
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 100%);
    grid-template-areas:
        "title
@@ -121,7 +129,7 @@ article > * {
             margin-right: 3.33333%;
          }
          li:nth-child(3) {
-             margin-right: 0; 
+             margin-right: 0;
          }
       }
    #blog-list {
@@ -142,7 +150,7 @@ article > * {
     aside {
         grid-column: 3;
         ul {
-            margin-top: 90px; 
+            margin-top: 90px;
         }
     }
 }

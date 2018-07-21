@@ -6,7 +6,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     font-family: "Varela Round", Arial, "Helvetica Neue", Helvetica, serif;
-    color: $black; 
+    color: $black;
 }
 
 h1, h2, h3 {
@@ -22,13 +22,15 @@ h1, h2, h3 {
 }
 
 p {
-   color: $black; 
-   padding: 1em 0;
+   color: $black;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 300;
+   padding: .5em 0;
    margin: 0;
 }
 
 figure {
-   margin: 0; 
+   margin: 0;
 }
 
 img {
@@ -38,9 +40,52 @@ img {
 }
 
 a {
-    color: $blue; 
+    color: $blue;
 }
 
 a:hover {
-    color: $red; 
+    color: $red;
+}
+
+
+.full-height {
+   height: 100vh;
+}
+
+.flex-center {
+   align-items: center;
+   display: flex;
+   justify-content: center;
+}
+
+.position-ref {
+   position: relative;
+}
+
+.top-right {
+   position: absolute;
+   right: 10px;
+   top: 18px;
+}
+
+.content {
+   text-align: center;
+}
+
+.title {
+   font-size: 84px;
+}
+
+.links > a {
+   color: #636b6f;
+   padding: 0 25px;
+   font-size: 12px;
+   font-weight: 600;
+   letter-spacing: .1rem;
+   text-decoration: none;
+   text-transform: uppercase;
+}
+
+.m-b-md {
+   margin-bottom: 30px;
 }

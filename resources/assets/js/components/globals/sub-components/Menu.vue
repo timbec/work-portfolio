@@ -41,15 +41,17 @@ export default {
       toggleNav() {
          var main = document.getElementById('main-content');
          var mobileMenu = document.querySelector('#mySidenav');
-         var headerTitle = document.getElementById('#site-title');
+         var headerTitle = document.getElementById('site-title');
          this.isActive = !this.isActive;
-         console.log(this.isActive);
+
          if(this.isActive === true) {
             mobileMenu.style.width = "100%";
             main.style.width = "0";
+            headerTitle.classList.add('mobile-menu-title');
          } else {
             mobileMenu.style.width = "0";
             main.style.width = "100%";
+            headerTitle.classList.remove('mobile-menu-title');
          }
 
       },
@@ -125,7 +127,7 @@ display: inline-block;
 cursor: pointer;
 z-index: 10000;
 position: absolute;
-top: 0;
+top: 2.5%;
 left: 0;
 }
 
@@ -176,7 +178,7 @@ transition: 0.4s;
 
    .sidenav ul {
       display: flex;
-      padding: 0; 
+      padding: 0;
    }
 
    .sidenav ul li {
@@ -185,7 +187,7 @@ transition: 0.4s;
 
       .sidenav ul li a {
       list-style: none;
-      padding: 8px 20px; 
+      padding: 8px 20px;
    }
 
 }

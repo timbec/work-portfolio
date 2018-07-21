@@ -2425,7 +2425,9 @@ h3 a {
 
 p {
   color: #09021d;
-  padding: 1em 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  padding: .5em 0;
   margin: 0;
 }
 
@@ -2445,6 +2447,54 @@ a {
 
 a:hover {
   color: #C6372C;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
 }
 
 /*Layouts*/
@@ -2478,10 +2528,11 @@ header h1 {
 
 header h1 a {
   color: #09021d;
+  z-index: 999;
 }
 
 header h1 a:hover {
-  color: #012C52;
+  color: #C6372C;
 }
 
 header h1 a .title {
@@ -2494,6 +2545,10 @@ header h1 a .tagline {
   text-align: center;
   float: left;
   margin-top: 20px;
+}
+
+header h1.mobile-menu-title a {
+  color: white;
 }
 
 /*Styles for the Home Page*/
@@ -2732,6 +2787,14 @@ footer p {
 @media only screen and (min-width: 650px) {
   /*600px and up*/
 
+  header#masthead h1#site-title {
+    padding-bottom: .2em;
+  }
+
+  header#masthead h1#site-title a {
+    color: #09021d;
+  }
+
   .menu-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2948,6 +3011,27 @@ footer p {
 
 @media only screen and (min-width: 1024px) {
   /*1024 and up*/
+
+  header#masthead {
+    margin-bottom: 50px;
+  }
+
+  header#masthead h1#site-title {
+    padding-bottom: 0;
+  }
+
+  header#masthead h1#site-title a {
+    color: #09021d;
+  }
+
+  #front-page-container #portfolio {
+    margin-top: 50px;
+  }
+
+  #front-page-container #portfolio h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 
   #front-page-container #portfolio .content__list li {
     width: 24%;
