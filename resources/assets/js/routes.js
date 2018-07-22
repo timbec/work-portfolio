@@ -20,11 +20,6 @@ export const routes = [
 
    },
    {
-        path: '/fuck-you',
-        component: Test
-
-   },
-   {
         path: '/contact',
         component: Contact
 

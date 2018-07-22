@@ -24,7 +24,7 @@ class ContactController extends Controller
         ), function($message)
     {
         $message->from('timothybenjaminbeckett@gmail.com');
-        $message->to('timothybenjaminbeckett@gmail.com', 'Admin')->subject('Web Portfolio Message');
+        $message->to('timothybenjaminbeckett@gmail.com', 'Admin')->subject('Message From Web Portfolio');
     });
 
         return \Redirect::route('/contact')

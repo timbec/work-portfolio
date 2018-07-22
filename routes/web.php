@@ -23,7 +23,7 @@ use App\Http\Resources\PostSingle as PostSingle;
 |
 */
 
-use Illuminate\Support\Facades\Mail; 
+use Illuminate\Support\Facades\Mail;
 
 /**
  * REST API
@@ -81,7 +81,7 @@ Route::get('/works/{id}', function($slug) {
 //Contact Forms
 Route::get('contact',
     ['as' => 'contact', 'uses' => 'ContactController@create']);
-Route::post('contact',
+Route::post('/contact',
     ['as' => 'contact_store', 'uses' => 'ContactController@store']);
 
 /**
@@ -89,7 +89,7 @@ Route::post('contact',
  */
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about' );
-Route::get('/contact', 'PagesController@contact' );
+// Route::get('/contact', 'PagesController@contact' );
 
 Route::get('/projects', 'WorksController@index' );
 Route::get('projects/{id}', ['as'=>'project.work', 'uses'=>'WorksController@work']);
