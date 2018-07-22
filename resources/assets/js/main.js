@@ -2,6 +2,7 @@ window.Vue = require('vue');
 
 
 import VueRouter from 'vue-router';
+import VModal from 'vue-js-modal';
 import App from './components/App.vue';
 import Header from './components/globals/Header.vue';
 import Footer from './components/globals/Footer.vue';
@@ -10,6 +11,7 @@ import { routes } from './routes';
 import jQuery from 'jquery';
 
 Vue.use(VueRouter);
+Vue.use(VModal);
 
 const router = new VueRouter({
     routes: routes,

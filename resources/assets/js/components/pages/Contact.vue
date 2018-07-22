@@ -1,8 +1,14 @@
 <template lang="html">
    <article class="form-container">
       <h1>Contact Me</h1>
+      <div class="contact-message">
+         <p>For the moment, please contact me at <a href="mailto:timbeckett@ymail.com">timbeckett@ymail.com</a> for any inquiries while I get the contact form in working order</p>
+      </div>
 
-      <form method="POST" action="https://tim-beckett.com/contact" accept-charset="UTF-8" class="form"><input name="_token" type="hidden" value="2SSVhjIHTKd1CnTz2UHZ2w9nHp3bgHy8VDcuRV8v">
+
+      <!-- <form method="POST" action="http://work-portfolio.test/contact" accept-charset="UTF-8" class="form"
+      >
+      <input name="_token" type="hidden" value="csrf">
 
     <div class="form-group">
         <label for="Your Name">Your Name</label>
@@ -25,11 +31,13 @@
     </form>
     <div id="form-output">
         <p>Mail: {{ email }}</p>
-    </div>
+    </div> -->
    </article>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data () {
         return {
@@ -41,37 +49,37 @@ export default {
 
 <style lang="css" scoped>
 .form-container {
-    display: grid; 
+    display: grid;
 
 }
 
 .form-group {
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: center; 
-    box-sizing: border-box; 
-    margin-bottom: 50px; 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 50px;
 }
 
 .form-group label {
-    display: none; 
-    flex: 1 0 120px; 
-    max-width: 220px; 
-    padding: 8px; 
-    font-weight: 300; 
-    letter-spacing: 0.09em; 
-    text-transform: uppercase; 
+    display: none;
+    flex: 1 0 120px;
+    max-width: 220px;
+    padding: 8px;
+    font-weight: 300;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
 }
 
 .form-group input {
-    padding: 15px; 
-    cursor: auto; 
-    flex: 1 0 220px; 
+    padding: 15px;
+    cursor: auto;
+    flex: 1 0 220px;
 }
 
 .form-group textarea {
-    flex: 1 0 120px;; 
-    padding: 15px; 
+    flex: 1 0 120px;;
+    padding: 15px;
 }
 
 .form-group .btn {
@@ -81,19 +89,29 @@ export default {
         color: #f2f2f2;
         text-transform: uppercase;
         letter-spacing: .09em;
-        flex: 1 0 120px; 
-        max-width: 200px; 
+        flex: 1 0 120px;
+        max-width: 200px;
         border-radius: 2px;
-        cursor: pointer; 
+        cursor: pointer;
 }
 
 .btn:hover {
     background: #C6372C;
 }
 
+.contact-message {
+   grid-column: 2/3;
+}
+
+.contact-message p {
+   font-size: 18px;
+   line-height: 1.6;
+   padding: 3em 12em;
+}
+
 @media (min-width: 800px) {
     .form-group label {
-        display: block; 
+        display: block;
     }
 }
 

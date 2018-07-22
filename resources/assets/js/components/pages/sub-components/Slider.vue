@@ -26,7 +26,7 @@ export default {
           {
           html: `<div class="slider1">
             <a href="">
-               <img src="../images/slider/opera-slider.jpg"
+               <img src="../slider/opera-slider.jpg"
             </a>
           </div>`,
 
@@ -34,7 +34,7 @@ export default {
           {
             html: `<div class="slider2">
              <a href="">
-                <img src="../images/slider/Unbearables_2.jpg"
+                <img src="../slider/Unbearables_2.jpg"
              </a>
            </div>`,
 
@@ -42,7 +42,7 @@ export default {
           {
             html: `<div class="slider3">
              <a href="">
-                <img src="../images/slider/Writing.jpg"
+                <img src="../slider/Writing.jpg"
              </a>
            </div>`
 
