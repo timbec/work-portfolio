@@ -1,7 +1,7 @@
 <template lang="html">
    <article class="form-container">
       <h1>Contact Me</h1>
-      <div class="form-group">
+      <div class="contact-message">
          <p>For the moment, please contact me at <a href="mailto:timbeckett@ymail.com">timbeckett@ymail.com</a> for any inquiries while I get the contact form in working order</p>
       </div>
 
@@ -97,6 +97,16 @@ export default {
 
 .btn:hover {
     background: #C6372C;
+}
+
+.contact-message {
+   grid-column: 2/3;
+}
+
+.contact-message p {
+   font-size: 18px;
+   line-height: 1.6;
+   padding: 3em 12em;
 }
 
 @media (min-width: 800px) {
