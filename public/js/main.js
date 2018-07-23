@@ -28231,9 +28231,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-   data: function data() {
-      return {};
-   }
+    data: function data() {
+        return {};
+    }
 });
 
 /***/ }),
@@ -28280,7 +28280,9 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("p", [_vm._v("© Tim Beckett 2018")])
+      _c("p", { staticClass: "footer-copyright" }, [
+        _vm._v("© Tim Beckett 2018")
+      ])
     ])
   }
 ]
@@ -29233,7 +29235,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "I will be adding to this site as I learn more about Vue and CSS Grid, incorporating more features, styles, and whatever else I cmoe across. Please be patient while I get this site in order!\n   "
+          "I will be adding to this site as I learn more about Vue and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next day or two. Please be patient while I get this site in order!\n   "
         )
       ]),
       _vm._v(" "),
