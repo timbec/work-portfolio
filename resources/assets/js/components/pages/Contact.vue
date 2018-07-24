@@ -6,9 +6,11 @@
       </div>
 
 
-      <!-- <form method="POST" action="http://work-portfolio.test/contact" accept-charset="UTF-8" class="form"
+      <form method="POST" action="http://work-portfolio.test/contact" accept-charset="UTF-8" class="form"
       >
-      <input name="_token" type="hidden" value="csrf">
+      <!-- <input name="_token" type="hidden" value="csrf"> -->
+      <input name="_token" type="hidden" value="Op7TwEZUivo5vr93EOkEZ9FSroNRPn6DSidBYyp6">
+
 
     <div class="form-group">
         <label for="Your Name">Your Name</label>
@@ -26,12 +28,13 @@
     </div>
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Contact Me!">
+        <input class="btn btn-primary" type="submit" value="Contact Me!"
+        on:click="sendMessage()">
     </div>
     </form>
     <div id="form-output">
-        <p>Mail: {{ email }}</p>
-    </div> -->
+        <p>Mail: {{ name }}</p>
+    </div>
    </article>
 </template>
 
@@ -41,9 +44,30 @@ import axios from 'axios';
 export default {
     data () {
         return {
-            email: ''
+            name: '',
+            email: '',
+            message: ''
         }
-    }
+    },
+    methods: {
+      sendMessage() {
+         console.log(this.name);
+         console.log(this.email);
+         console.log(this.password);
+
+         //passing the data to the API
+         axios.post('/contact', {
+            name: this.name,
+            email: this.email,
+            password: this.password
+         }).then(response => {
+            console.log(response),
+            this.name='',
+            this.email='',
+            this.password=''
+         }).catch(error=>{console.log(error)})
+      }
+   }
 }
 </script>
 

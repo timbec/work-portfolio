@@ -27957,6 +27957,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -28041,8 +28044,8 @@ var render = function() {
             "li",
             { on: { click: _vm.closeNav } },
             [
-              _c("router-link", { attrs: { to: { path: "/contact" } } }, [
-                _vm._v("Contact")
+              _c("router-link", { attrs: { to: { path: "/#portfolio" } } }, [
+                _vm._v("Portfolio")
               ])
             ],
             1
@@ -29223,19 +29226,19 @@ var staticRenderFns = [
     return _c("article", { attrs: { id: "intro" } }, [
       _c("p", [
         _vm._v(
-          "Welcome to my new Portfolio Site. I built it using Laravel on the back end and Vue.js on the front end, incorporating CSS Grid and CSS Flexbos for styling. "
+          "Welcome to my new Portfolio Site. I built it using Laravel on the back end and Vue.js on the front end, incorporating CSS Grid and CSS Flexbox for styling. "
         )
       ]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "I come from a background building custom sites in Wordpress. Although I still use Wordpress a great deal, I am branching out into front end technologies like Vue.js, some React (and vanilla JS of course), as well as dabbling in Python, which I like very much.And of course Laravel, which I wish I could use more often."
+          "I come from a background building custom sites in Wordpress. Although I still use Wordpress a great deal, I am branching out into front end technologies like Vue.js, some React (and vanilla JS), as well as dabbling in Python, which I like very much. And of course Laravel, which I wish I could use more often."
         )
       ]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "I will be adding to this site as I learn more about Vue and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next day or two. Please be patient while I get this site in order!\n   "
+          "I will be adding to this site as I learn more about Vue, CSS Animations and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next day or two. Please be patient while I get this site in order!\n   "
         )
       ]),
       _vm._v(" "),
@@ -30416,15 +30419,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            email: ''
-        };
-    }
+   data: function data() {
+      return {
+         name: '',
+         email: '',
+         message: ''
+      };
+   },
+
+   methods: {
+      sendMessage: function sendMessage() {
+         var _this = this;
+
+         console.log(this.name);
+         console.log(this.email);
+         console.log(this.password);
+
+         //passing the data to the API
+         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/contact', {
+            name: this.name,
+            email: this.email,
+            password: this.password
+         }).then(function (response) {
+            console.log(response), _this.name = '', _this.email = '', _this.password = '';
+         }).catch(function (error) {
+            console.log(error);
+         });
+      }
+   }
 });
 
 /***/ }),
@@ -30435,27 +30464,143 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("article", { staticClass: "form-container" }, [
+    _c("h1", [_vm._v("Contact Me")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass: "form",
+        attrs: {
+          method: "POST",
+          action: "http://work-portfolio.test/contact",
+          "accept-charset": "UTF-8"
+        }
+      },
+      [
+        _c("input", {
+          attrs: {
+            name: "_token",
+            type: "hidden",
+            value: "Op7TwEZUivo5vr93EOkEZ9FSroNRPn6DSidBYyp6"
+          }
+        }),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "Your E-mail Address" } }, [
+            _vm._v("Your E-mail Address")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              required: "required",
+              placeholder: "Your e-mail address",
+              name: "email",
+              type: "text"
+            },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3)
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "form-output" } }, [
+      _c("p", [_vm._v("Mail: " + _vm._s(_vm.name))])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("article", { staticClass: "form-container" }, [
-      _c("h1", [_vm._v("Contact Me")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "contact-message" }, [
-        _c("p", [
-          _vm._v("For the moment, please contact me at "),
-          _c("a", { attrs: { href: "mailto:timbeckett@ymail.com" } }, [
-            _vm._v("timbeckett@ymail.com")
-          ]),
-          _vm._v(
-            " for any inquiries while I get the contact form in working order"
-          )
-        ])
+    return _c("div", { staticClass: "contact-message" }, [
+      _c("p", [
+        _vm._v("For the moment, please contact me at "),
+        _c("a", { attrs: { href: "mailto:timbeckett@ymail.com" } }, [
+          _vm._v("timbeckett@ymail.com")
+        ]),
+        _vm._v(
+          " for any inquiries while I get the contact form in working order"
+        )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "Your Name" } }, [_vm._v("Your Name")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          required: "required",
+          placeholder: "Your name",
+          name: "name",
+          type: "text"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "Your Message" } }, [_vm._v("Your Message")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: {
+          required: "required",
+          placeholder: "Your message",
+          name: "message",
+          cols: "50",
+          rows: "10"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        staticClass: "btn btn-primary",
+        attrs: {
+          type: "submit",
+          value: "Contact Me!",
+          "on:click": "sendMessage()"
+        }
+      })
     ])
   }
 ]
