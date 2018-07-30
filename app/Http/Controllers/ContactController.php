@@ -16,18 +16,19 @@ class ContactController extends Controller
     public function store(ContactFormRequest $request)
     {
 
-        \Mail::send('emails.contact',
+        \Mail::send('email.contact',
         array(
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'user_message' => $request->get('message')
         ), function($message)
+
     {
         $message->from('timothybenjaminbeckett@gmail.com');
         $message->to('timothybenjaminbeckett@gmail.com', 'Admin')->subject('Message From Web Portfolio');
     });
 
-        return \Redirect::route('/contact')
-            ->with('message', 'Thank You for Contacting Me');
+        // return \Redirect::route('')
+        //     ->with('message', 'Thank You for Contacting Me');
     }
 }

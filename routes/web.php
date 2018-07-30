@@ -78,18 +78,20 @@ Route::get('/works/{id}', function($slug) {
    return new WorkSingle($work);
 });
 
-//Contact Forms
-Route::get('contact',
-    ['as' => 'contact', 'uses' => 'ContactController@create']);
-Route::post('/contact',
+
+// Route::get('contact',
+//     ['as' => 'contact', 'uses' => 'ContactController@create']);
+
+Route::post('contact-form',
     ['as' => 'contact_store', 'uses' => 'ContactController@store']);
+
 
 /**
  * Pages Controller
  */
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about' );
-// Route::get('/contact', 'PagesController@contact' );
+
 
 Route::get('/projects', 'WorksController@index' );
 Route::get('projects/{id}', ['as'=>'project.work', 'uses'=>'WorksController@work']);

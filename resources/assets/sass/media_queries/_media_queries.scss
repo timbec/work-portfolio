@@ -1,5 +1,13 @@
 /*Responsive Styles*/
 
+@media only screen and (min-width: 600px) {
+   footer {
+      .footer-links {
+         grid-column: 3/5;
+      }
+   }
+}
+
 @media only screen and (min-width: 650px) {
    @import '600up';
 }

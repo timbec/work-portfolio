@@ -17,11 +17,11 @@
          margin-bottom: 1em;
          li {
             list-style: none;
-            height: 30px; 
+            height: 30px;
             padding: 5px 0;
             text-transform: uppercase;
             &:hover {
-                 padding-bottom: 0; 
+                 padding-bottom: 0;
                  border-bottom: 5px solid $red;
             }
          }
@@ -32,9 +32,9 @@
    }
    ul.content__list {
       display: flex;
-      flex-direction: row; 
-      flex-wrap: wrap; 
-      justify-content: space-between; 
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
       padding: 0;
       margin: 0;
    }
@@ -43,15 +43,15 @@
 /* https://www.w3schools.com/howto/howto_css_image_overlay.asp*/
 li.work {
    list-style: none;
-   margin-top: 20px;  
-   width: 100%; 
+   margin-top: 20px;
+   width: 100%;
    }
 
     figure {
         margin: 0;
         width: 100%;
         position: relative;
-        border: 1px solid #ccc; 
+        border: 1px solid #ccc;
         img {
             width: 100%;
             display: block;
@@ -86,17 +86,24 @@ li.work {
                 a {
                     color: white;
                     &:hover {
-                        color: white; 
+                        color: white;
                     }
                 }
-                
+
             }
         }
     }
 
    figure:hover figcaption {
-       opacity: 0.8; 
+       opacity: 0.8;
    }
    .company__details {
       display: none;
+   }
+
+   /*Modal Styles*/
+    *
+    .v--modal-box.v--modal, .v--modal {
+      background-color: transparent !important;
+      box-shadow: none;
    }
