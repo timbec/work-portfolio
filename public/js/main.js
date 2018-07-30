@@ -28972,6 +28972,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -29016,19 +29017,6 @@ var render = function() {
     "div",
     [
       _c(
-        "button",
-        {
-          staticClass: "button contact-me-link",
-          on: {
-            click: function($event) {
-              _vm.$modal.show("contact-support-modal")
-            }
-          }
-        },
-        [_vm._v("\n   Contact Me\n   ")]
-      ),
-      _vm._v(" "),
-      _c(
         "modal",
         {
           attrs: {
@@ -29059,15 +29047,6 @@ var render = function() {
                   }
                 },
                 [
-                  _c("input", {
-                    attrs: {
-                      id: "signup-token",
-                      name: "_token",
-                      type: "hidden"
-                    },
-                    domProps: { value: _vm.csrf }
-                  }),
-                  _vm._v(" "),
                   _c("ul", { staticClass: "flex-outer" }, [
                     _c("li", { staticClass: "control" }, [
                       _c("label", { attrs: { for: "first-name" } }, [
