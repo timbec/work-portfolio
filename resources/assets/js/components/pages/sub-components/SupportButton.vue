@@ -1,10 +1,10 @@
 <template lang="html">
   <div>
 
-     <button class="button contact-me-link"
+     <!-- <button class="button contact-me-link"
      @click="$modal.show('contact-support-modal')">
      Contact Me
-     </button>
+     </button> -->
 
   <modal name="contact-support-modal"
   height="auto"
@@ -21,9 +21,10 @@
         class=""
         >
 
-        <input id="signup-token" name="_token" type="hidden" :value="csrf">
+        <!-- <input id="signup-token" name="_token" type="hidden" :value="csrf"> -->
         <ul class="flex-outer">
           <li class="control">
+             <!--https://stackoverflow.com/questions/45523101/how-to-refer-laravel-csrf-field-inside-a-vue-template  -->
              <label for="first-name">Your Name</label>
               <input
                   type="text"
