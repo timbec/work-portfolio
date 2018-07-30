@@ -28970,6 +28970,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -28977,7 +28979,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return {
          message: {},
          errors: {},
-         submitted: false
+         submitted: false,
+         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
       };
    },
 
@@ -29056,6 +29059,15 @@ var render = function() {
                   }
                 },
                 [
+                  _c("input", {
+                    attrs: {
+                      id: "signup-token",
+                      name: "_token",
+                      type: "hidden"
+                    },
+                    domProps: { value: _vm.csrf }
+                  }),
+                  _vm._v(" "),
                   _c("ul", { staticClass: "flex-outer" }, [
                     _c("li", { staticClass: "control" }, [
                       _c("label", { attrs: { for: "first-name" } }, [
