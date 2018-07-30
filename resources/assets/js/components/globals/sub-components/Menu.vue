@@ -131,7 +131,7 @@ cursor: pointer;
 z-index: 10000;
 position: absolute;
 top: 2.5%;
-left: 0;
+margin-left: 20px; 
 }
 
 .bar1, .bar2, .bar3 {

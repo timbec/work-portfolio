@@ -12721,6 +12721,7 @@ new Vue({
 var menuItems = document.querySelectorAll('.nav__label');
 if (menuItems.length > 0) {
     menuItems[1].innerText = 'Categories';
+    console.log('this has loaded');
 }
 
 // const articleEl = document.querySelectorAll('article');
@@ -27914,7 +27915,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.sidenav[data-v-9b3828b6] {\n   height: 100%;\n   width: 0;\n   position: fixed;\n   z-index: 1;\n   top: 0;\n   left: 0;\n   background-color: #09021d;\n   padding-top: 60px;\n   -webkit-transition: 0.5s;\n   transition: 0.5s;\n}\n.sidenav a[data-v-9b3828b6] {\n   padding: 8px 8px 8px 32px;\n   text-decoration: none;\n   font-size: 25px;\n   color: #fff;\n   display: block;\n   -webkit-transition: 0.3s;\n   transition: 0.3s;\n}\n.sidenav a[data-v-9b3828b6]:hover {\n   color: red;\n}\n.sidenav .closebtn[data-v-9b3828b6] {\n   position: absolute;\n   top: 0;\n   right: 25px;\n   font-size: 36px;\n   margin-left: 50px;\n}\n.sidenav ul[data-v-9b3828b6] {\n    height: 50%;\n    top: 0;\n    opacity: 0;\n}\n.sidenav ul li[data-v-9b3828b6] {\n   list-style: none;\n}\n.sidenav.open ul[data-v-9b3828b6] {\n   -webkit-transform: translateY(36%);\n   transform: translateY(36%);\n   opacity: 1;\n   display: -webkit-box;\n   display: -ms-flexbox;\n   display: flex;\n   -webkit-box-pack: start;\n   -ms-flex-pack: start;\n       justify-content: start;\n   -webkit-box-orient: vertical;\n   -webkit-box-direction: normal;\n       -ms-flex-direction: column;\n           flex-direction: column;\n}\n\n/*Hamburger Icon*/\n.toggleNav[data-v-9b3828b6] {\ndisplay: inline-block;\ncursor: pointer;\nz-index: 10000;\nposition: absolute;\ntop: 2.5%;\nleft: 0;\n}\n.bar1[data-v-9b3828b6], .bar2[data-v-9b3828b6], .bar3[data-v-9b3828b6] {\nwidth: 35px;\nheight: 5px;\nbackground-color: #09021d;\nmargin: 6px 0;\n-webkit-transition: 0.4s;\ntransition: 0.4s;\n}\n.sidenav.open .toggleNav .bar1[data-v-9b3828b6] {\n   background-color: white;\n   -webkit-transform: rotate(-45deg) translate(-9px, 6px);\n   transform: rotate(-45deg) translate(-9px, 6px);\n}\n.sidenav.open .toggleNav .bar2[data-v-9b3828b6] {\n   background-color: white;\n   opacity: 0;\n}\n.sidenav.open .toggleNav .bar3[data-v-9b3828b6] {\n   background-color: white;\n   -webkit-transform: rotate(45deg) translate(-8px, -8px);\n   transform: rotate(45deg) translate(-8px, -8px);\n}\n@media screen and (max-height: 450px) {\n.sidenav[data-v-9b3828b6] {padding-top: 15px;\n}\n.sidenav a[data-v-9b3828b6] {font-size: 18px;\n}\n}\n@media screen and (min-width: 600px ) {\n.toggleNav[data-v-9b3828b6] {\n      display: none;\n}\n.sidenav .closebtn[data-v-9b3828b6] {\n      display: none;\n}\n.sidenav[data-v-9b3828b6][data-v-9b3828b6] {\n      background-color: transparent;\n      position: relative;\n      width: auto !important;\n}\n.sidenav ul[data-v-9b3828b6] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      padding: 0;\n}\n.sidenav ul li[data-v-9b3828b6] {\n      list-style: none;\n}\n.sidenav ul li a[data-v-9b3828b6] {\n      list-style: none;\n      padding: 8px 20px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.sidenav[data-v-9b3828b6] {\n   height: 100%;\n   width: 0;\n   position: fixed;\n   z-index: 1;\n   top: 0;\n   left: 0;\n   background-color: #09021d;\n   padding-top: 60px;\n   -webkit-transition: 0.5s;\n   transition: 0.5s;\n}\n.sidenav a[data-v-9b3828b6] {\n   padding: 8px 8px 8px 32px;\n   text-decoration: none;\n   font-size: 25px;\n   color: #fff;\n   display: block;\n   -webkit-transition: 0.3s;\n   transition: 0.3s;\n}\n.sidenav a[data-v-9b3828b6]:hover {\n   color: red;\n}\n.sidenav .closebtn[data-v-9b3828b6] {\n   position: absolute;\n   top: 0;\n   right: 25px;\n   font-size: 36px;\n   margin-left: 50px;\n}\n.sidenav ul[data-v-9b3828b6] {\n    height: 50%;\n    top: 0;\n    opacity: 0;\n}\n.sidenav ul li[data-v-9b3828b6] {\n   list-style: none;\n}\n.sidenav.open ul[data-v-9b3828b6] {\n   -webkit-transform: translateY(36%);\n   transform: translateY(36%);\n   opacity: 1;\n   display: -webkit-box;\n   display: -ms-flexbox;\n   display: flex;\n   -webkit-box-pack: start;\n   -ms-flex-pack: start;\n       justify-content: start;\n   -webkit-box-orient: vertical;\n   -webkit-box-direction: normal;\n       -ms-flex-direction: column;\n           flex-direction: column;\n}\n\n/*Hamburger Icon*/\n.toggleNav[data-v-9b3828b6] {\ndisplay: inline-block;\ncursor: pointer;\nz-index: 10000;\nposition: absolute;\ntop: 2.5%;\nmargin-left: 20px;\n}\n.bar1[data-v-9b3828b6], .bar2[data-v-9b3828b6], .bar3[data-v-9b3828b6] {\nwidth: 35px;\nheight: 5px;\nbackground-color: #09021d;\nmargin: 6px 0;\n-webkit-transition: 0.4s;\ntransition: 0.4s;\n}\n.sidenav.open .toggleNav .bar1[data-v-9b3828b6] {\n   background-color: white;\n   -webkit-transform: rotate(-45deg) translate(-9px, 6px);\n   transform: rotate(-45deg) translate(-9px, 6px);\n}\n.sidenav.open .toggleNav .bar2[data-v-9b3828b6] {\n   background-color: white;\n   opacity: 0;\n}\n.sidenav.open .toggleNav .bar3[data-v-9b3828b6] {\n   background-color: white;\n   -webkit-transform: rotate(45deg) translate(-8px, -8px);\n   transform: rotate(45deg) translate(-8px, -8px);\n}\n@media screen and (max-height: 450px) {\n.sidenav[data-v-9b3828b6] {padding-top: 15px;\n}\n.sidenav a[data-v-9b3828b6] {font-size: 18px;\n}\n}\n@media screen and (min-width: 600px ) {\n.toggleNav[data-v-9b3828b6] {\n      display: none;\n}\n.sidenav .closebtn[data-v-9b3828b6] {\n      display: none;\n}\n.sidenav[data-v-9b3828b6][data-v-9b3828b6] {\n      background-color: transparent;\n      position: relative;\n      width: auto !important;\n}\n.sidenav ul[data-v-9b3828b6] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      padding: 0;\n}\n.sidenav ul li[data-v-9b3828b6] {\n      list-style: none;\n}\n.sidenav ul li a[data-v-9b3828b6] {\n      list-style: none;\n      padding: 8px 20px;\n}\n}\n", ""]);
 
 // exports
 
@@ -28740,7 +28741,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -28753,6 +28754,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SupportButton_vue__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SupportButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SupportButton_vue__);
+//
+//
 //
 //
 //
@@ -28862,7 +28865,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.v--modal-overlay[data-v-101a1392] {\n   background: rgba(255, 255, 255, 0.8);\n}\n\n", ""]);
+exports.push([module.i, "\n.button.contact-me-link[data-v-101a1392] {\n   background: #C6372C;\n   color: white;\n   padding: 10px 15px;\n   margin-top: 50px;\n}\n.button.contact-me-link[data-v-101a1392]:hover {\n   background: white;\n   color: #C6372C;\n   border: 1px solid #C6372C;\n}\n.v--modal-overlay[data-v-101a1392] {\n   background-color: rgba(0, 0, 0, 0.8);\n}\n.v--modal-box.v--modal[data-v-101a1392], .v--modal[data-v-101a1392] {\n   background-color: transparent;\n   -webkit-box-shadow: none;\n           box-shadow: none;\n}\n.container[data-v-101a1392] {\nwidth: 80%;\nmax-width: 1200px;\nmargin: 0 auto;\n}\n.container *[data-v-101a1392] {\n-webkit-box-sizing: border-box;\n        box-sizing: border-box;\n}\n.flex-outer[data-v-101a1392],\n.flex-inner[data-v-101a1392] {\nlist-style-type: none;\npadding: 0;\n}\n.flex-outer[data-v-101a1392] {\nmax-width: 800px;\nmargin: 0 auto;\n}\n.flex-outer li[data-v-101a1392],\n.flex-inner[data-v-101a1392] {\ndisplay: -webkit-box;\ndisplay: -ms-flexbox;\ndisplay: flex;\n-ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n-webkit-box-align: center;\n    -ms-flex-align: center;\n        align-items: center;\n}\n.flex-inner[data-v-101a1392] {\npadding: 0 8px;\n-webkit-box-pack: justify;\n    -ms-flex-pack: justify;\n        justify-content: space-between;\n}\n.flex-outer > li[data-v-101a1392]:not(:last-child) {\nmargin-bottom: 20px;\n}\n.flex-outer li label[data-v-101a1392],\n.flex-outer li p[data-v-101a1392] {\npadding: 8px;\nfont-weight: 300;\nletter-spacing: .09em;\ntext-transform: uppercase;\ncolor: white;\n}\n.flex-outer > li > label[data-v-101a1392],\n.flex-outer li p[data-v-101a1392] {\n-webkit-box-flex: 1;\n    -ms-flex: 1 0 120px;\n        flex: 1 0 120px;\nmax-width: 220px;\n}\n.flex-outer > li > label + *[data-v-101a1392],\n.flex-inner[data-v-101a1392] {\n-webkit-box-flex: 1;\n    -ms-flex: 1 0 220px;\n        flex: 1 0 220px;\n}\n.flex-outer li p[data-v-101a1392] {\nmargin: 0;\n}\n.flex-outer li input[data-v-101a1392]:not([type='checkbox']),\n.flex-outer li textarea[data-v-101a1392] {\npadding: 15px;\nborder: none;\n}\n.flex-outer li button[data-v-101a1392] {\nmargin-left: auto;\npadding: 8px 16px;\nborder: none;\nbackground: #C6372C;\ncolor: #ffffff;\ntext-transform: uppercase;\nletter-spacing: .09em;\nborder-radius: 2px;\n}\n.flex-out li button[data-v-101a1392]:hover {\n   background: white;\n   color: #C6372C;\n   border: 1px solid #C6372C;\n}\n.flex-inner li[data-v-101a1392] {\nwidth: 100px;\n}\n\n", ""]);
 
 // exports
 
@@ -28875,6 +28878,17 @@ exports.push([module.i, "\n.v--modal-overlay[data-v-101a1392] {\n   background: 
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28972,18 +28986,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          var _this = this;
 
          this.submitted = true;
-         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/contact', this.message).then(function () {
+         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/contact-form', this.message).then(function () {
+
             _this.$modal.hide('contact-support-modal');
             _this.resetForm();
             alert('thanks, we will be in touch soon.');
          }).catch(function (errors) {
-            _this.errors = errors.response.data.errors;
+            _this.errors = errors.response;
          });
+      },
+      resetForm: function resetForm() {
+         this.message = {};
       }
-   },
-
-   resetForm: function resetForm() {
-      this.message = {};
    }
 });
 
@@ -28999,10 +29013,9 @@ var render = function() {
     "div",
     [
       _c(
-        "a",
+        "button",
         {
-          staticClass: "contact-me-link",
-          attrs: { href: "#" },
+          staticClass: "button contact-me-link",
           on: {
             click: function($event) {
               _vm.$modal.show("contact-support-modal")
@@ -29018,179 +29031,206 @@ var render = function() {
           attrs: {
             name: "contact-support-modal",
             height: "auto",
-            width: "100%",
-            pivotY: 1
+            width: "100%"
           }
         },
         [
-          _c("div", { staticClass: "full-modal" }, [
-            _c("h1", [_vm._v("Contact Me")]),
+          _c("div", { staticClass: "full-modal modal" }, [
+            _c("div", { staticClass: "modal-background" }),
             _vm._v(" "),
-            _c(
-              "form",
-              {
-                attrs: { autocomplete: "off" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.contactSupport($event)
-                  },
-                  keydown: function($event) {
-                    _vm.submitted = false
+            _c("div", { staticClass: "container" }, [
+              _c("h1", {}, [_vm._v("Contact Me")]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: { autocomplete: "off" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.contactSupport($event)
+                    },
+                    keydown: function($event) {
+                      _vm.submitted = false
+                    }
                   }
-                }
-              },
-              [
-                _c("div", { staticClass: "control" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.message.name,
-                        expression: "message.name"
-                      }
-                    ],
-                    staticClass: "input-is-minimal",
-                    attrs: {
-                      type: "text",
-                      name: "name",
-                      id: "name",
-                      placeholder: "What is your name?",
-                      required: ""
-                    },
-                    domProps: { value: _vm.message.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                },
+                [
+                  _c("ul", { staticClass: "flex-outer" }, [
+                    _c("li", { staticClass: "control" }, [
+                      _c("label", { attrs: { for: "first-name" } }, [
+                        _vm._v("Your Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.message.name,
+                            expression: "message.name"
+                          }
+                        ],
+                        staticClass: "input-is-primary",
+                        attrs: {
+                          type: "text",
+                          name: "name",
+                          id: "name",
+                          placeholder: "What is your name?",
+                          required: ""
+                        },
+                        domProps: { value: _vm.message.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.message, "name", $event.target.value)
+                          }
                         }
-                        _vm.$set(_vm.message, "name", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "control" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.message.email,
-                        expression: "message.email"
-                      }
-                    ],
-                    staticClass: "input-is-minimal",
-                    attrs: {
-                      type: "email",
-                      name: "email",
-                      id: "email",
-                      placeholder: "What is your email?",
-                      required: ""
-                    },
-                    domProps: { value: _vm.message.email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "control" }, [
+                      _c("label", { attrs: { for: "last-name" } }, [
+                        _vm._v("Your Email")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.message.email,
+                            expression: "message.email"
+                          }
+                        ],
+                        staticClass: "input-is-minimal",
+                        attrs: {
+                          type: "email",
+                          name: "email",
+                          id: "email",
+                          placeholder: "What is your email?",
+                          required: ""
+                        },
+                        domProps: { value: _vm.message.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.message, "email", $event.target.value)
+                          }
                         }
-                        _vm.$set(_vm.message, "email", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "control" }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.message.message,
-                        expression: "message.message"
-                      }
-                    ],
-                    staticClass: "input-is-minimal",
-                    attrs: {
-                      id: "body",
-                      name: "message",
-                      "data-autosize": "",
-                      placeholder: "What's your message?",
-                      required: ""
-                    },
-                    domProps: { value: _vm.message.message },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "control" }, [
+                      _c("label", { attrs: { for: "message" } }, [
+                        _vm._v("Message")
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.message.message,
+                            expression: "message.message"
+                          }
+                        ],
+                        staticClass: "input-is-minimal",
+                        attrs: {
+                          id: "body",
+                          name: "message",
+                          "data-autosize": "",
+                          placeholder: "What's your message?",
+                          required: ""
+                        },
+                        domProps: { value: _vm.message.message },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.message,
+                              "message",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(_vm.message, "message", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "control" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.message.verification,
-                        expression: "message.verification"
-                      }
-                    ],
-                    staticClass: "input-is-minimal",
-                    attrs: {
-                      name: "verification",
-                      id: "verification",
-                      placeholder: "What is 1 + 4",
-                      required: ""
-                    },
-                    domProps: { value: _vm.message.verification },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "control" }, [
+                      _c("label", { attrs: { for: "verification" } }, [
+                        _vm._v("Verify You Are Human")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.message.verification,
+                            expression: "message.verification"
+                          }
+                        ],
+                        staticClass: "input-is-minimal",
+                        attrs: {
+                          name: "verification",
+                          id: "verification",
+                          placeholder: "What is 1 + 4",
+                          required: ""
+                        },
+                        domProps: { value: _vm.message.verification },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.message,
+                              "verification",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.message,
-                          "verification",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex" }, [
-                  _c(
-                    "a",
-                    {
-                      on: {
-                        click: function($event) {
-                          _vm.$modal.hide("contact-support-modal")
-                        }
-                      }
-                    },
-                    [_vm._v("Cancel")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      attrs: {
-                        type: "submit",
-                        name: "button",
-                        disabled: _vm.submitted
-                      }
-                    },
-                    [_vm._v("\n            Send\n         ")]
-                  )
-                ])
-              ]
-            )
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "control" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button cancel",
+                          on: {
+                            click: function($event) {
+                              _vm.$modal.hide("contact-support-modal")
+                            }
+                          }
+                        },
+                        [_vm._v("\n           Cancel\n           ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-primary",
+                          attrs: {
+                            type: "submit",
+                            name: "button",
+                            disabled: _vm.submitted
+                          }
+                        },
+                        [_vm._v("\n               Send\n           ")]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ])
           ])
         ]
       )
@@ -29216,36 +29256,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("article", { attrs: { id: "intro" } }, [
+    _c("p", [
+      _vm._v(
+        "Welcome to my new Portfolio Site. I built it using Laravel on the back end and Vue.js on the front end, incorporating CSS Grid and CSS Flexbox for styling. "
+      )
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v(
+        "I come from a background building custom sites in Wordpress. Although I still use Wordpress a great deal, I am branching out into front end technologies like Vue.js, some React (and vanilla JS), as well as dabbling in Python, which I like very much. And of course Laravel, which I wish I could use more often."
+      )
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v(
+        "I will be adding to this site as I learn more about Vue, CSS Animations and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next day or two. Please be patient while I get this site in order!\n   "
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "support-button" } }, [_c("support-button")], 1)
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("article", { attrs: { id: "intro" } }, [
-      _c("p", [
-        _vm._v(
-          "Welcome to my new Portfolio Site. I built it using Laravel on the back end and Vue.js on the front end, incorporating CSS Grid and CSS Flexbox for styling. "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "I come from a background building custom sites in Wordpress. Although I still use Wordpress a great deal, I am branching out into front end technologies like Vue.js, some React (and vanilla JS), as well as dabbling in Python, which I like very much. And of course Laravel, which I wish I could use more often."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "I will be adding to this site as I learn more about Vue, CSS Animations and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next day or two. Please be patient while I get this site in order!\n   "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "support-button" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
