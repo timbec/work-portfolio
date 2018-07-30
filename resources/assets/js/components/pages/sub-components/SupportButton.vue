@@ -20,6 +20,8 @@
         @keydown="submitted = false"
         class=""
         >
+
+        <input id="signup-token" name="_token" type="hidden" :value="csrf">
         <ul class="flex-outer">
           <li class="control">
              <label for="first-name">Your Name</label>
@@ -97,7 +99,8 @@ export default {
       return {
          message: {},
          errors: {},
-         submitted: false
+         submitted: false,
+         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
       }
    },
    methods: {
