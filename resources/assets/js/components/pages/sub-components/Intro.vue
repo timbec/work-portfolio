@@ -7,7 +7,7 @@
       <p>I will be adding to this site as I learn more about Vue, CSS Animations and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next day or two. Please be patient while I get this site in order!
       </p>
 
-      
+
       <div id="support-button">
          <support-button></support-button>
       </div>

@@ -1,10 +1,10 @@
 <template lang="html">
   <div>
 
-     <!-- <button class="button contact-me-link"
+     <button class="button contact-me-link"
      @click="$modal.show('contact-support-modal')">
      Contact Me
-     </button> -->
+     </button>
 
   <modal name="contact-support-modal"
   height="auto"
