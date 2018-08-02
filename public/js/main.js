@@ -29017,6 +29017,19 @@ var render = function() {
     "div",
     [
       _c(
+        "button",
+        {
+          staticClass: "button contact-me-link",
+          on: {
+            click: function($event) {
+              _vm.$modal.show("contact-support-modal")
+            }
+          }
+        },
+        [_vm._v("\n   Contact Me\n   ")]
+      ),
+      _vm._v(" "),
+      _c(
         "modal",
         {
           attrs: {
