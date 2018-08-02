@@ -2,6 +2,7 @@
 
 use App\Post;
 use App\Work;
+use App\Note;
 use App\Tag;
 use App\WorkCategory;
 
@@ -38,15 +39,28 @@ use Illuminate\Support\Facades\Mail;
 
  });
 
-Route::get('/test', function() {
+Route::get('/test-page', function() {
 
-    $works = Work::all();
-
-    $tags = Tag::all();
-
-    return $tags;
+    // $works = Work::all();
+    //
+    // $tags = Tag::all();
+    //
+    // return $tags;
+    //
+    return 'This is the test page';
 
 });
+
+Route::get('/work-categories', function() {
+
+   $work_categories = WorkCategory::all();
+
+   return $work_categories;
+});
+
+/**
+ * Posts
+ */
 
 Route::get('/posts', function() {
 
@@ -54,14 +68,6 @@ Route::get('/posts', function() {
 
    return PostResource::collection($posts);
 
-});
-
-
-Route::get('/work-categories', function() {
-
-   $work_categories = WorkCategory::all();
-
-   return $work_categories;
 });
 
 Route::get('/posts/{id}', function($slug) {
@@ -77,6 +83,34 @@ Route::get('/works/{id}', function($slug) {
 
    return new WorkSingle($work);
 });
+
+
+/**
+ * Notes
+ */
+
+Route::get('/notes', function() {
+
+   $notes = Note::all();
+
+   return $notes;
+
+});
+
+Route::get('/notes/{id}', function($slug) {
+   $note = Note::findBySlugOrFail($slug);
+
+   return new NoteSingle($note);
+});
+
+Route::get('/works/{id}', function($slug) {
+   $work = Work::findBySlugOrFail($slug);
+   $tags = Tag::all();
+   $work_categories = WorkCategory::all();
+
+   return new WorkSingle($work);
+});
+
 
 
 // Route::get('contact',
@@ -98,6 +132,7 @@ Route::get('projects/{id}', ['as'=>'project.work', 'uses'=>'WorksController@work
 
 Route::get('/blog', 'PostsController@index' );
 Route::get('blog/{id}', ['as'=>'blog.post', 'uses'=>'PostsController@post']);
+
 
 Auth::routes();
 
