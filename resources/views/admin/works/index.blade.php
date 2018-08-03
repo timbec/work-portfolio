@@ -47,6 +47,7 @@
                 <div class="form-group">
                     {!! Form::submit('Delete work', ['class'=>'btn btn-danger']) !!}
                 </div>
+                {!! Form::close() !!}
             </td>
         </tr>
         @endforeach

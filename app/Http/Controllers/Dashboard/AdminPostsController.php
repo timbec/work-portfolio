@@ -146,9 +146,7 @@ class AdminPostsController extends Controller
      */
      public function post($slug){
 
-
         $post = Post::findBySlugOrFail($slug);
-
 
         return view('post', compact('post'));
 

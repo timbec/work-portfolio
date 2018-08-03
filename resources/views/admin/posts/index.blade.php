@@ -42,12 +42,14 @@
                 <a class="btn btn-dark" href="{{ route('admin.posts.edit', $post->id) }}">EDIT</a>
             </td>
              <td>
-                  {!! Form::open(['method'=>'DELETE', 'action'=>['Dashboard\AdminPostsController@destroy', $post->id]]) !!}
+                {!! Form::open(['method'=>'DELETE', 'action'=>['Dashboard\AdminPostsController@destroy', $post->id]]) !!}
 
                 <div class="form-group">
                     {!! Form::submit('Delete Post', ['class'=>'btn btn-danger']) !!}
                 </div>
+                {!! Form::close() !!}
             </td>
+            
         </tr>
         @endforeach
     @endif
