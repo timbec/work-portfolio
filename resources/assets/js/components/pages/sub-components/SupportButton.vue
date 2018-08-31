@@ -129,16 +129,51 @@ export default {
 
 <style lang="css" scoped>
 .button.contact-me-link {
+   position: relative; 
    background: #C6372C;
    color: white;
    padding: 10px 15px;
    margin-top: 50px;
 }
 
+.button.contact-me-link:link, 
+.button.contact-me-link:visited {
+  border-radius: 100px; 
+  transition: all .2s; 
+  animation: moveInBottom .5s ease-out .75s;
+   animation-fill-mode: backwards; 
+}
+
 .button.contact-me-link:hover {
+  transform: translateY(-3px); 
    background: white;
    color: #C6372C;
    border: 1px solid #C6372C;
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.button.contact-me-link:active {
+  transform: translateY(-1px);
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.button.contact-me-link::after {
+   content: '';
+   background: #C6372C; 
+   display: inline-block;
+   height: 100%;
+   width: 100%;
+   border-radius: 100px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transition: all .4s;
+   z-index: -1;
+}
+
+.button.contact-me-link:hover::after {
+  transform: scaleX(1.4) scale(1.6);
+  opacity: 0; 
 }
 
 .v--modal-overlay {

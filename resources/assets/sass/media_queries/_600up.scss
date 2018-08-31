@@ -11,6 +11,8 @@ header#masthead {
 .menu-container {
    display: flex;
    justify-content: center;
+   animation: moveInBottom .5s ease-out .75s;
+   animation-fill-mode: backwards;
    .sidenav.open ul {
       flex-direction: row !important;
       transform: none !important;
@@ -36,6 +38,18 @@ header#masthead {
          }
       }
    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
 
 nav.nav {

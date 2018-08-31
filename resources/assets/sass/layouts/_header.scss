@@ -9,19 +9,23 @@ header {
       z-index: 9999;
       a {
          color: $black;
-         z-index: 999;
+        //  z-index: 999;
+         backface-visibility: hidden;
          &:hover {
              color: $red;
          }
          .title {
             font-size: 40px;
             text-align: center;
+            display: block; 
+            animation: moveInLeft 1s ease-out;
          }
          .tagline {
             width: 100%;
              text-align: center;
-             float: left;
+             display: block; 
              margin-top: 20px;
+             animation: moveInRight 1s ease-in;
          }
       }
    }
@@ -31,3 +35,36 @@ header {
       }
    }
 }
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px) rotate(0deg);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
