@@ -139,6 +139,8 @@ Auth::routes();
 Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 
 Route::resource('/dashboard/users', 'Dashboard\AdminUsersController' );
+
+
 Route::resource('/dashboard/posts', 'Dashboard\AdminPostsController', ['names' => [
     'index' => 'admin.posts.index',
     'create' => 'admin.posts.create',
@@ -176,6 +178,15 @@ Route::resource('dashboard/works', 'Dashboard\WorksController',
      'create'=>'admin.works.create',
      'store'=>'admin.works.store',
      'edit'=>'admin.works.edit'
+]]);
+
+//Notes
+Route::resource('dashboard/notes', 'Dashboard\NotesController',
+['names' => [
+     'index' => 'admin.notes.index',
+     'create'=>'admin.notes.create',
+     'store'=>'admin.notes.store',
+     'edit'=>'admin.notes.edit'
 ]]);
 
 Route::delete('admin/delete/media', 'Dashboard\AdminMediaController@deleteMedia');

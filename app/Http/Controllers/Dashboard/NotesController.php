@@ -5,6 +5,13 @@ namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests;
+use App\Note;
+use App\Tag;
+
+use Illuminate\Support\Facades\Auth;
+
+
 class NotesController extends Controller
 {
     /**
@@ -12,9 +19,11 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Tag $tag=null)
     {
-        return 'NOTES PAGE'
+        $notes = Note::all();
+
+        return view('admin.notes.index', compact('notes'));
     }
 
     /**
@@ -24,7 +33,9 @@ class NotesController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::pluck('name', 'id');
+
+        return view('admin.notes.create', compact('tags'));
     }
 
     /**
@@ -35,7 +46,15 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $user = Auth::user();
+
+        $notes = $user->notes()->create($input);
+
+        $notes->tags()->attach($request->input('tags'));
+
+        return redirect('/dashboard/notes');
     }
 
     /**
@@ -57,7 +76,9 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $note = Note::findOrFail($id);
+
+        return view('admin.notes.edit', compact('note'));
     }
 
     /**
@@ -69,7 +90,11 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+
+        Auth::user()->notes()->whereId($id)->first()->update($input);
+
+        return redirect('/dashboard/notes');
     }
 
     /**
@@ -80,6 +105,10 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Note::findOrFail($id);
+
+        $note->delete();
+
+        return redirect('/dashboard/notes');
     }
 }

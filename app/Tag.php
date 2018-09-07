@@ -28,7 +28,7 @@ class Tag extends Model
 
         return $this->belongsToMany('App\Note');
 
-   }
+    }
 
     public function getRouteKeyName(){
 

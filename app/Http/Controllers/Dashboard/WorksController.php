@@ -34,7 +34,7 @@ class WorksController extends Controller
      */
     public function create()
     {
-         $work_categories = WorkCategory::pluck('name', 'id')->all();
+        $work_categories = WorkCategory::pluck('name', 'id')->all();
         $tags = Tag::pluck('name', 'id');
 
         return view('admin.works.create', compact('work_categories', 'tags'));
@@ -66,6 +66,8 @@ class WorksController extends Controller
         $works = $user->works()->create($input);
 
         $works->tags()->attach($request->input('tags'));
+
+        //dd($works->tags());
 
         return redirect('/dashboard/works');
     }

@@ -25,16 +25,19 @@ class Note extends Model
            ]
       ];
    }
+   
+    protected $fillable = [
+    'title',
+    'body'
+    ];
 
-   protected $fillable = [
-      'title',
-      'body',
-   ];
+     /**
+     * Link our Tag (also used for Post)
+     */
+    public function tags() {
 
-   public function tags(){
+        return $this->belongsToMany('App\Tag');
 
-      return $this->belongsToMany('App\Tag');
-
-  }
+    }
 
 }

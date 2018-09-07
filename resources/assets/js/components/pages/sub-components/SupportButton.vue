@@ -134,11 +134,11 @@ export default {
    color: white;
    padding: 10px 15px;
    margin-top: 50px;
+
 }
 
 .button.contact-me-link:link, 
 .button.contact-me-link:visited {
-  border-radius: 100px; 
   transition: all .2s; 
   animation: moveInBottom .5s ease-out .75s;
    animation-fill-mode: backwards; 
@@ -163,7 +163,6 @@ export default {
    display: inline-block;
    height: 100%;
    width: 100%;
-   border-radius: 100px;
    position: absolute;
    top: 0;
    left: 0;
@@ -172,7 +171,7 @@ export default {
 }
 
 .button.contact-me-link:hover::after {
-  transform: scaleX(1.4) scale(1.6);
+  transform: scaleX(1.1) scale(1.2);
   opacity: 0; 
 }
 
