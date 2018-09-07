@@ -6,8 +6,9 @@ import Posts from './components/posts/Posts.vue';
 import Post from './components/posts/Post.vue';
 import Works from './components/works/Works.vue';
 import Work from './components/works/Work.vue';
+import Notes from './components/notes/Notes.vue';
 
-
+console.log(Notes); 
 export const routes = [
    {
         path: '/',
@@ -31,6 +32,10 @@ export const routes = [
    {
         path: '/projects/:slug',
         component: Work
+    },
+    {
+        path: '/work-notes',
+        component: Notes
     },
    {
         path: '/blog',

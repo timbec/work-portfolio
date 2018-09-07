@@ -28488,6 +28488,8 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_works_Works_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_works_Works_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_works_Work_vue__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_works_Work_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_works_Work_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_notes_Notes_vue__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_notes_Notes_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_notes_Notes_vue__);
 
 
 
@@ -28497,6 +28499,8 @@ if (false) {
 
 
 
+
+console.log(__WEBPACK_IMPORTED_MODULE_8__components_notes_Notes_vue___default.a);
 var routes = [{
      path: '/',
      component: __WEBPACK_IMPORTED_MODULE_0__components_pages_Home_vue___default.a
@@ -28515,6 +28519,9 @@ var routes = [{
 }, {
      path: '/projects/:slug',
      component: __WEBPACK_IMPORTED_MODULE_7__components_works_Work_vue___default.a
+}, {
+     path: '/work-notes',
+     component: __WEBPACK_IMPORTED_MODULE_8__components_notes_Notes_vue___default.a
 }, {
      path: '/blog',
      component: __WEBPACK_IMPORTED_MODULE_4__components_posts_Posts_vue___default.a
@@ -29275,7 +29282,7 @@ var render = function() {
     _vm._v(" "),
     _c("p", [
       _vm._v(
-        "I will be adding to this site as I learn more about Vue, CSS Animations and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next day or two. Please be patient while I get this site in order!\n   "
+        "I will be adding to/renovating this site as I learn more about Vue, CSS Animations and CSS Grid, incorporating more features, styles, and whatever else I come across. This site has plenty of bugs I hope to clear up over the next couple of weeks. Please be patient while I get this site in order!\n   "
       )
     ]),
     _vm._v(" "),
@@ -32013,6 +32020,226 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-23fdd3f5", module.exports)
+  }
+}
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(148)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(150)
+/* template */
+var __vue_template__ = __webpack_require__(151)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/notes/Notes.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0eb5380c", Component.options)
+  } else {
+    hotAPI.reload("data-v-0eb5380c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(149);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("e8846ffc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0eb5380c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Notes.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0eb5380c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Notes.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 149 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 150 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+   data: function data() {
+      return {
+         notes: [],
+         note: {
+            title: '',
+            body: '',
+            slug: '',
+            tags: [],
+            tag: {
+               name: ''
+            },
+            featured_image: '',
+            thumbnail: ''
+         }
+      };
+   },
+   computed: {
+      thumbnail: function (_thumbnail) {
+         function thumbnail() {
+            return _thumbnail.apply(this, arguments);
+         }
+
+         thumbnail.toString = function () {
+            return _thumbnail.toString();
+         };
+
+         return thumbnail;
+      }(function () {
+         thumbnail = '/images/' + this.featured_image;
+         return thumbnail;
+      })
+   },
+   created: function created() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/notes').then(function (response) {
+         return _this.notes = response.data.data;
+      });
+
+      //then(response => console.log(response.data.data));
+   }
+});
+
+/***/ }),
+/* 151 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c("h1", [_vm._v("Notes")]),
+      _vm._v(" "),
+      _vm._l(_vm.notes, function(note) {
+        return _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: /work-notes/ + note.slug } }, [
+              _c("figure", [
+                _c("img", { attrs: { src: "images/" + note.featured_image } }),
+                _vm._v(" "),
+                _c("figcaption", [
+                  _vm._v("\n        " + _vm._s(note.title) + "\n        ")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(note.keywords, function(tag) {
+                return _c("li", [
+                  _vm._v("\n                " + _vm._s(tag) + "\n             ")
+                ])
+              })
+            )
+          ],
+          1
+        )
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0eb5380c", module.exports)
   }
 }
 

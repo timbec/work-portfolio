@@ -48,18 +48,67 @@
       @endif
 @stop
 
-   @section('scripts')
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
-   <script src="/js/summernote.js"></script>
+    <script>
+    /**
+     * https://stackoverflow.com/questions/37839562/summernote-codeblock-button
+     */
+    var CodeButton = function (context) {
+            var ui = $.summernote.ui;
 
-   <script type="text/javascript">
+            // create button
+            var button = ui.button({
+                contents: 'Code block',
+                tooltip: 'insert Code',
+                click: function () {
 
-   $('#summernote').summernote({
-      height: ($(window).height() - 300);
-   });
+                    context.invoke('editor.pasteHTML', '<pre><code class="html">Code here.</code></pre>');
+        }
+      });
 
+      return button.render();   // return button as jquery object
+    }
+
+    var HelloButton = function (context) {
+  var ui = $.summernote.ui;
+
+  // create button
+  var button = ui.button({
+    contents: '<i class="fa fa-child"/> Hello',
+    tooltip: 'hello',
+    click: function () {
+      // invoke insertText method with 'hello' on editor module.
+      context.invoke('editor.insertText', 'hello');
+    }
+  });
+
+  return button.render();   // return button as jquery object
 }
+//You can see render() which returns jquery object as button.
 
-   </script>
 
+
+    //$(document).ready(function() {
+      $('#summernote').summernote({
+      minHeight: 200,
+                    toolbar: [
+    					['style', ['style']],
+                        ['mybutton', ['insertCode']],
+    					['font', ['bold', 'italic', 'underline', 'clear']],
+    					['para', ['ul', 'ol']],
+    					['height', ['height']],
+    					['insert', ['link', 'picture']],
+    					['view', ['fullscreen', 'codeview']],
+    					['help', ['help']]
+    				],
+
+                    buttons: {
+                        insertCode: CodeButton
+                    }
+    });
+    //});
+
+    </script>
     @stop

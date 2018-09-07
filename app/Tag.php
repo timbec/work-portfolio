@@ -14,7 +14,6 @@ class Tag extends Model
         return $this->belongsToMany('App\Post');
     }
 
-
     public function works()
     {
 
@@ -22,7 +21,6 @@ class Tag extends Model
 
     }
     
-
     public function notes()
     {
 
