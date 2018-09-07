@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 use App\Note;
+use App\Photo; 
 use App\Tag;
 
 use Illuminate\Support\Facades\Auth;
@@ -50,9 +51,24 @@ class NotesController extends Controller
 
         $user = Auth::user();
 
+        $note = Note::first();
+
+        if($file = $request->file('photo_id')) {
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name );
+
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+
         $notes = $user->notes()->create($input);
 
+        // dd($notes); 
+
         $notes->tags()->attach($request->input('tags'));
+
+        //dd($notes->tags());
 
         return redirect('/dashboard/notes');
     }

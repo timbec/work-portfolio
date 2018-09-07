@@ -27,7 +27,7 @@
 
             </td>
             <td>
-            <img height="100" src="/images/{{$work->photo ? $work->photo->file : 'http://via.placeholder.com/350x150' }}" alt="">
+            <img height="100" src="/images/{{$work->photo ? $work->photo->file : 'http://via.older.com/350x150' }}" alt="">placeh
             </td>
             <td>{{ $work->work_category ? $work->work_category->name : 'Uncategorized' }}</td>
             <td>

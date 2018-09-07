@@ -8,10 +8,17 @@
 @section('content')
       <h1>Create A Note</h1>
 
-      {!! Form::open(['method'=>'POST','action'=>'Dashboard\NotesController@store']) !!}
+      {!! Form::open(['method'=>'POST','action'=>'Dashboard\NotesController@store', 'files'=> true ]) !!}
+
+      {!! Form::open(['method'=>'POST', 'action'=>'Dashboard\AdminPostsController@store', 'files'=> true ]) !!}
          <div class="form-group">
             {!! Form::label('title', 'Title:') !!}
             {!! Form::text('title', null, ['class'=>'form-control'])!!}
+         </div>
+
+         <div class="form-group">
+            {!! Form::label('photo_id', 'Thumbnail:') !!}
+            {!! Form::file('photo_id', null, ['class'=>'form-control', 'rows'=>5])!!}
          </div>
 
          <div class="form-group">

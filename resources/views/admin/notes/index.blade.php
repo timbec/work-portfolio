@@ -31,6 +31,9 @@
             @endforeach
           
             </td>
+            <td>
+            <img height="100" src="/images/{{$note->photo ? $note->photo->file : 'http://via.older.com/350x150' }}" alt="">placeh
+            </td>
             <td>{{ $note->body }}</td>
             <td>{{ $note->created_at->diffForHumans() }}</td>
             <td>{{ $note->updated_at->diffForHumans() }}</td>
