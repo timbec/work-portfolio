@@ -1,8 +1,12 @@
 <template lang="html">
    <section class="notes">
         <h1>Notes</h1>
+         <div class="search-wrapper">
+            <input type="text" v-model="search" placeholder="Search title.."/>
+                <label>Search title:</label>
+            </div>
         <ul>
-        <li v-for="note in notes">
+        <li v-for="note in filteredList">
             <!-- <router-link :to="/work-notes/ + '#' + note.slug"> -->
             <a :href="'#' + note.slug">
             <figure class="notes__image">
@@ -43,9 +47,9 @@ import Note from './Note.vue';
 
 
 export default {
-    props: ['note', 'tag'],
    data: function() {
          return {
+               search: '',
                notes: [],
                note: {
                   title: '',
@@ -64,7 +68,12 @@ export default {
          thumbnail: function() {
             thumbnail = '/images/' + this.featured_image;
             return thumbnail;
-         }
+         }, 
+        filteredList() {
+            return this.notes.filter(note => {
+                return note.title.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
       },
       components: {
           'app-note': Note

@@ -32305,7 +32305,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -32359,14 +32359,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-   props: ['note', 'tag'],
    data: function data() {
       return {
+         search: '',
          notes: [],
          note: {
             title: '',
@@ -32395,16 +32399,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }(function () {
          thumbnail = '/images/' + this.featured_image;
          return thumbnail;
-      })
+      }),
+      filteredList: function filteredList() {
+         var _this = this;
+
+         return this.notes.filter(function (note) {
+            return note.title.toLowerCase().includes(_this.search.toLowerCase());
+         });
+      }
    },
    components: {
       'app-note': __WEBPACK_IMPORTED_MODULE_1__Note_vue___default.a
    },
    created: function created() {
-      var _this = this;
+      var _this2 = this;
 
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/notes').then(function (response) {
-         return _this.notes = response.data.data;
+         return _this2.notes = response.data.data;
       });
 
       //then(response => console.log(response.data.data));
@@ -32434,7 +32445,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['note', 'tag']
+});
 
 /***/ }),
 /* 158 */
@@ -32489,9 +32502,34 @@ var render = function() {
   return _c("section", { staticClass: "notes" }, [
     _c("h1", [_vm._v("Notes")]),
     _vm._v(" "),
+    _c("div", { staticClass: "search-wrapper" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.search,
+            expression: "search"
+          }
+        ],
+        attrs: { type: "text", placeholder: "Search title.." },
+        domProps: { value: _vm.search },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.search = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("Search title:")])
+    ]),
+    _vm._v(" "),
     _c(
       "ul",
-      _vm._l(_vm.notes, function(note) {
+      _vm._l(_vm.filteredList, function(note) {
         return _c("li", [
           _c("a", { attrs: { href: "#" + note.slug } }, [
             _c("figure", { staticClass: "notes__image" }, [

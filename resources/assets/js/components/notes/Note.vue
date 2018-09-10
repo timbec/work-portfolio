@@ -16,6 +16,6 @@
 
 <script>
 export default {
-    
+    props: ['note', 'tag'],
 }
 </script>
