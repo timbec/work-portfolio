@@ -6,9 +6,15 @@
 // Imports
 @import "normalize";
 @import "variables/variables";
+@import "abstracts/mixins"; 
+@import "base/base"; 
 @import 'typography/typography';
 @import 'elements/elements';
 @import 'layouts/layouts';
+
+@import 'pages/notes'; 
+
+@import 'components/components';
 @import 'navigation/navigation';
 @import 'vendor/vendor';
 @import 'media_queries/media_queries';

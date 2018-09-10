@@ -5,6 +5,14 @@ namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests;
+use App\Note;
+use App\Photo; 
+use App\Tag;
+
+use Illuminate\Support\Facades\Auth;
+
+
 class NotesController extends Controller
 {
     /**
@@ -12,9 +20,11 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Tag $tag=null)
     {
-        return 'NOTES PAGE'
+        $notes = Note::all();
+
+        return view('admin.notes.index', compact('notes'));
     }
 
     /**
@@ -24,7 +34,9 @@ class NotesController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::pluck('name', 'id');
+
+        return view('admin.notes.create', compact('tags'));
     }
 
     /**
@@ -35,7 +47,30 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $user = Auth::user();
+
+        $note = Note::first();
+
+        if($file = $request->file('photo_id')) {
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name );
+
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+
+        $notes = $user->notes()->create($input);
+
+        // dd($notes); 
+
+        $notes->tags()->attach($request->input('tags'));
+
+        //dd($notes->tags());
+
+        return redirect('/dashboard/notes');
     }
 
     /**
@@ -57,7 +92,9 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $note = Note::findOrFail($id);
+
+        return view('admin.notes.edit', compact('note'));
     }
 
     /**
@@ -69,7 +106,11 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+
+        Auth::user()->notes()->whereId($id)->first()->update($input);
+
+        return redirect('/dashboard/notes');
     }
 
     /**
@@ -80,6 +121,10 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Note::findOrFail($id);
+
+        $note->delete();
+
+        return redirect('/dashboard/notes');
     }
 }

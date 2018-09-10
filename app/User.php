@@ -33,9 +33,15 @@ class User extends Authenticatable
 
     }
 
-     public function works(){
+    public function works(){
 
         return $this->hasMany('App\Work');
 
+    }
+
+    public function notes() {
+
+        return $this->hasMany('App\Note'); 
+        
     }
 }

@@ -25,16 +25,28 @@ class Note extends Model
            ]
       ];
    }
+   
+    protected $fillable = [
+    'title',
+    'photo_id',
+    'body'
+    ];
 
-   protected $fillable = [
-      'title',
-      'body',
-   ];
+    /**
+     * Link our photo thumbnail
+     */
+    public function photo() {
+        return $this->belongsTo('App\Photo');
+    }
 
-   public function tags(){
 
-      return $this->belongsToMany('App\Tag');
+     /**
+     * Link our Tag (also used for Post and Work)
+     */
+    public function tags() {
 
-  }
+        return $this->belongsToMany('App\Tag');
+
+    }
 
 }

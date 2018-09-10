@@ -10,8 +10,10 @@ use App\WorkCategory;
 use Illuminate\Http\Request;
 use App\Http\Resources\Post as PostResource;
 use App\Http\Resources\WorkResource as WorkResource;
+use App\Http\Resources\NoteResource as NoteResource;
 use App\Http\Resources\WorkSingle as WorkSingle;
 use App\Http\Resources\PostSingle as PostSingle;
+use App\Http\Resources\NoteSingle as NoteSingle;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,17 @@ use Illuminate\Support\Facades\Mail;
     return WorkResource::collection($works);
 
  });
+
+  Route::get('/notes', function() {
+
+    $notes = Note::all();
+
+    $tags = Tag::all();
+
+    return NoteResource::collection($notes);
+
+ });
+
 
 Route::get('/test-page', function() {
 
@@ -85,20 +98,10 @@ Route::get('/works/{id}', function($slug) {
 });
 
 
-/**
- * Notes
- */
-
-Route::get('/notes', function() {
-
-   $notes = Note::all();
-
-   return $notes;
-
-});
-
 Route::get('/notes/{id}', function($slug) {
+
    $note = Note::findBySlugOrFail($slug);
+   $tags = Tag::all(); 
 
    return new NoteSingle($note);
 });
@@ -130,6 +133,9 @@ Route::get('/about', 'PagesController@about' );
 Route::get('/projects', 'WorksController@index' );
 Route::get('projects/{id}', ['as'=>'project.work', 'uses'=>'WorksController@work']);
 
+Route::get('/work-notes', 'NotesController@index' );
+Route::get('work-notes/{id}', ['as'=>'project.work', 'uses'=>'WorksController@work']);
+
 Route::get('/blog', 'PostsController@index' );
 Route::get('blog/{id}', ['as'=>'blog.post', 'uses'=>'PostsController@post']);
 
@@ -139,6 +145,8 @@ Auth::routes();
 Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 
 Route::resource('/dashboard/users', 'Dashboard\AdminUsersController' );
+
+
 Route::resource('/dashboard/posts', 'Dashboard\AdminPostsController', ['names' => [
     'index' => 'admin.posts.index',
     'create' => 'admin.posts.create',
@@ -176,6 +184,15 @@ Route::resource('dashboard/works', 'Dashboard\WorksController',
      'create'=>'admin.works.create',
      'store'=>'admin.works.store',
      'edit'=>'admin.works.edit'
+]]);
+
+//Notes
+Route::resource('dashboard/notes', 'Dashboard\NotesController',
+['names' => [
+     'index' => 'admin.notes.index',
+     'create'=>'admin.notes.create',
+     'store'=>'admin.notes.store',
+     'edit'=>'admin.notes.edit'
 ]]);
 
 Route::delete('admin/delete/media', 'Dashboard\AdminMediaController@deleteMedia');

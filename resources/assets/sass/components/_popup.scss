@@ -1,0 +1,71 @@
+/*Following BEM priniciple*/ 
+
+.popup {
+    height: 100%; 
+    width: 100%; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    background-color: rgba($black, 0.8);
+    z-index: 9999; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all .3s; 
+
+    &:target {
+        opacity: 1; 
+        visibility: visible; 
+    }
+
+    &__content {
+        @include absCenter; 
+        width: 60%; 
+        height: 60rem; 
+        padding: 5rem; 
+        background-color: #fff;
+        box-shadow: 0 2rem 4rem rgba($black, 0.2);
+        position: relative; 
+        transform: translate(-50%, -50%) scale(.8);
+        transition: all .4s .2s; 
+        overflow: scroll; 
+
+        h4 {
+            font-size: 2.2rem; 
+        }
+
+        p.p1 {
+            font-size: 1.8rem; 
+        }
+
+        p.p2 {
+            display: none; 
+        }
+
+        pre {
+            background: $black; 
+            padding: 1rem; 
+
+            p.p1 {
+                font-size: 1.8rem; 
+                color: white; 
+            }
+        }
+    }
+
+    &__close {
+        text-decoration: none; 
+        &:link, 
+        &:visited {
+            color: $black; 
+            position:absolute;
+            top: 1.5rem; 
+            right: 2.5rem; 
+            font-size: 3rem; 
+            display: inline-block; 
+            transition: all .5s; 
+        }
+        &:hover {
+            color: $red; 
+        }
+    }
+}
