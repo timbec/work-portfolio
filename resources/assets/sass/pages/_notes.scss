@@ -34,4 +34,20 @@
     ul.notes__tags {
         display: none; 
     }
+
+    .search-wrapper {
+
+        margin-bottom: 3.5rem;
+
+        input {
+            /*SEE TUTORIAL STYLES*/ 
+            outline: 1px solid $blue; 
+        }
+
+        label {
+            display: none; 
+        }
+    }
+
+
 }
