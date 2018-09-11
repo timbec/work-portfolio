@@ -2924,6 +2924,19 @@ footer p.footer-copyright {
   display: none;
 }
 
+.notes .search-wrapper {
+  margin-bottom: 3.5rem;
+}
+
+.notes .search-wrapper input {
+  /*SEE TUTORIAL STYLES*/
+  outline: 1px solid #012C52;
+}
+
+.notes .search-wrapper label {
+  display: none;
+}
+
 /*Following BEM priniciple*/
 
 .popup {
